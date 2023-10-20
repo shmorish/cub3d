@@ -1,0 +1,20 @@
+## Mac OS X
+.DS_Store
+
+## Debug files
+build/
+
+## libft-tester
+libft-tester-tokyo/
+error.log
+result.log
+
+## vscode
+.vscode
+
+## others
+*.a
+main.c
+a.out
+*.o
+*.swp
