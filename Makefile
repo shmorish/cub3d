@@ -20,10 +20,14 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
 clean :
+	$(MAKE) -C ./libft clean
+	$(MAKE) -C ./mlx clean
 	$(RM) $(OBJS)
 	rm -rf $(OBJDIR)
 
 fclean : clean
+	$(MAKE) -C ./libft fclean
+	$(MAKE) -C ./mlx clean
 	$(RM) $(NAME)
 
 re : fclean all

@@ -6,11 +6,35 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 23:03:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/20 13:48:42 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/20 19:22:29 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*gnl_strjoin(char *s1, char *s2)
+{
+	char	*ret;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	ret = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!ret)
+	{
+		free(s1);
+		return (NULL);
+	}
+	while (s1[i] != '\0')
+		ret[j++] = s1[i++];
+	i = 0;
+	while (s2[i] != '\0')
+		ret[j++] = s2[i++];
+	ret[j] = '\0';
+	free(s1);
+	return (ret);
+}
 
 char	*read_buffer(int fd, char **store)
 {
@@ -32,7 +56,7 @@ char	*read_buffer(int fd, char **store)
 			store[fd] = gnl_strjoin(store[fd], buf);
 		if (store[fd] == NULL)
 			return (free(buf), NULL);
-		if (ft_strchr(store[fd], '\n') || read_size == 0)
+		if (ft_strchr(store[fd], '\n') != NULL || read_size == 0)
 			break ;
 		free(buf);
 	}
@@ -121,7 +145,7 @@ char	*get_next_line(int fd)
 // 	int		i;
 
 // 	i = 0;
-// 	fd = open("a.txt", O_RDONLY);
+// 	fd = open("get_next_line.c", O_RDONLY);
 // 	if (fd == -1)
 // 	{
 // 		perror("open");

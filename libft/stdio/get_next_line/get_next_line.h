@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 23:03:09 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/20 13:48:40 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/20 19:18:08 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <fcntl.h>
+# include "../../includes/libft.h"
 
 char	*get_next_line(int fd);
-
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s);
-char	*gnl_strjoin(char *s1, char *s2);
-int		ft_strchr(const char *s, int c);
 
 #endif
