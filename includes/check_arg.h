@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:38:55 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 17:41:30 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 08:03:55 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ int		check_args(int argc, char **argv);
 // check_file_extension.c
 int		check_file_extension(char **argv);
 // check_file_invalid.c
+int		is_directory(char **argv);
 int		check_file_invalid(char **argv);
 // err_msg.c
-void	err_msg(char *msg);
+int		err_msg(char *msg);
+int		perror_msg(char *msg);
 
 #endif

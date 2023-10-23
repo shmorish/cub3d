@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 23:27:36 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 06:05:23 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,29 +21,19 @@ void	map_init(t_map *map)
 	map->map = NULL;
 }
 
-t_data	*init_data(char *filename)
+t_data	*init_data(void)
 {
 	t_data	*data;
 
-	(void)filename;
 	data = (t_data *)malloc(sizeof(t_data));
 	if (data == NULL)
-	{
-		err_msg(MALLOC_ERR);
-		exit(1);
-	}
+		exit(err_msg(MALLOC_ERR));
 	data->mlx_utils = (t_mlx_utils *)malloc(sizeof(t_mlx_utils));
 	if (data->mlx_utils == NULL)
-	{
-		err_msg(MALLOC_ERR);
-		exit(1);
-	}
+		exit(err_msg(MALLOC_ERR));
 	data->map = (t_map *)malloc(sizeof(t_map));
 	if (data->map == NULL)
-	{
-		err_msg(MALLOC_ERR);
-		exit(1);
-	}
+		exit(err_msg(MALLOC_ERR));
 	mlx_utils_init(data);
 	map_init(data->map);
 	print_data_addr(data);

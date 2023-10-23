@@ -1,31 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err_msg.c                                          :+:      :+:    :+:   */
+/*   putcolor_to_parser.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 16:43:07 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:59:34 by morishitash      ###   ########.fr       */
+/*   Created: 2023/10/24 06:49:42 by morishitash       #+#    #+#             */
+/*   Updated: 2023/10/24 06:54:47 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/check_arg.h"
-
-int	err_msg(char *msg)
-{
-	ft_putstr_fd(RED, 2);
-	ft_putstr_fd("cub3D: ", 2);
-	ft_putstr_fd(msg, 2);
-	ft_putstr_fd(RESET, 2);
-	return (1);
-}
-
-int	perror_msg(char *msg)
-{
-	ft_putstr_fd(RED, 2);
-	ft_putstr_fd("cub3D: ", 2);
-	perror(msg);
-	ft_putstr_fd(RESET, 2);
-	return (1);
-}
+#include "../../includes/parser.h"

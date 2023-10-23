@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:02:19 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 23:28:23 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/23 23:41:18 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 int	check_file_extension(char **argv)
 {
 	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4) != 0)
-	{
-		err_msg(INVALID_FILE_EXT);
-		return (INVALID);
-	}
+		return (err_msg(INVALID_FILE_EXT), INVALID);
 	return (VALID);
 }

@@ -6,13 +6,13 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:07:40 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 17:33:26 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 08:03:13 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/check_arg.h"
 
-static int	check_directory(char **argv)
+int	is_directory(char **argv)
 {
 	int	fd;
 
@@ -38,14 +38,9 @@ int	check_file_invalid(char **argv)
 
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-	{
-		ft_putstr_fd(RED, 2);
-		perror("cub3D");
-		ft_putstr_fd(RESET, 2);
-		return (INVALID);
-	}
+		return (perror_msg(argv[1]));
 	close(fd);
-	if (check_directory(argv) == INVALID)
+	if (is_directory(argv) == INVALID)
 		return (INVALID);
 	return (VALID);
 }

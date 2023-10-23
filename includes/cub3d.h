@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 23:21:58 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 07:30:03 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 typedef struct s_mlx_utils	t_mlx_utils;
 typedef struct s_map		t_map;
 typedef struct s_data		t_data;
+typedef struct s_parser		t_parser;
 
 typedef struct s_mlx_utils
 {
@@ -74,7 +75,38 @@ typedef struct s_data
 	t_map		*map;
 }	t_data;
 
-t_data	*init_data(char *filename);
-void	free_data(t_data *data);
-void	mlx_utils_init(t_data *data);
+typedef enum e_direction
+{
+	UNKNOWN,
+	NORTH,
+	SOUTH,
+	WEST,
+	EAST
+}	t_direction;
+
+
+typedef struct s_parser
+{
+	char		*filename;
+
+	char		*north_texture;
+	char		*south_texture;
+	char		*west_texture;
+	char		*east_texture;
+
+	int			floor_color_r;
+	int			floor_color_g;
+	int			floor_color_b;
+	int			ceiling_color_r;
+	int			ceiling_color_g;
+	int			ceiling_color_b;
+
+	t_direction	player_dir;
+	char		**map;
+}	t_parser;
+
+t_data		*init_data(void);
+void		free_data(t_data *data);
+void		mlx_utils_init(t_data *data);
+t_parser	*init_parser(char *filename);
 #endif
