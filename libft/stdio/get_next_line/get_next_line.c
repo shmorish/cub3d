@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 23:03:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/20 19:22:29 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/23 11:29:12 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*read_buffer(int fd, char **store)
 
 	while (1)
 	{
-		buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		buf = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 		if (!buf)
 			return (NULL);
 		read_size = read(fd, buf, BUFFER_SIZE);
@@ -77,6 +77,7 @@ char	*concat_to_line(char *store)
 	if (!line)
 	{
 		free(store);
+		store = NULL;
 		return (NULL);
 	}
 	i = 0;
