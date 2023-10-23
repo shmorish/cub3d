@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:38:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 17:34:37 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/23 17:41:38 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_args(int argc, char **argv)
 {
 	if (argc != 2)
-		return (err_msg(INVALID_ARG), INVALID);
+		return (err_msg(NOFILE_IN_ARG), INVALID);
 	if (check_file_extension(argv) == INVALID)
 		return (INVALID);
 	if (check_file_invalid(argv) == INVALID)

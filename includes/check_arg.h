@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:38:55 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 17:33:57 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/23 17:41:30 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "cub3d.h"
 
 // print errors (used)
-# define INVALID_ARG "Invalid argument\n"
+# define NOFILE_IN_ARG "No file in argument\n"
 # define INVALID_FILE_EXT "Invalid file extension\n"
 // print errors (not used)
 # define INVALID_MAP "Invalid map\n"

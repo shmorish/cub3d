@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 17:35:26 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/23 18:14:28 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,38 @@
 # define VALID 0
 # define INVALID 1
 
-// err_msg.c
-void	err_msg(char *msg);
+# define MALLOC_ERR "Memory allocation error\n"
+
+# define WINDOW_WIDTH 720
+# define WINDOW_HEIGHT 480
+
+typedef struct s_mlx_utils	t_mlx_utils;
+typedef struct s_map		t_map;
+typedef struct s_data		t_data;
+
+typedef struct s_mlx_utils
+{
+	void	*mlx;
+	void	*win;
+	void	*img;
+	char	*addr;
+	int		win_width;
+	int		win_height;
+}	t_mlx_utils;
+
+typedef struct s_map
+{
+	char	**map;
+	int		map_width;
+	int		map_height;
+}	t_map;
+
+typedef struct s_data
+{
+	t_mlx_utils	*mlx_utils;
+	t_map		*map;
+}	t_data;
+
+void	init_data(t_data *data, char *filename);
 
 #endif
