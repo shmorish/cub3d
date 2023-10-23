@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 18:14:28 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/23 23:21:58 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@
 # define INVALID 1
 
 # define MALLOC_ERR "Memory allocation error\n"
+# define MINILIBX_ERR "Minilibx error\n"
 
 # define WINDOW_WIDTH 720
 # define WINDOW_HEIGHT 480
@@ -73,6 +74,7 @@ typedef struct s_data
 	t_map		*map;
 }	t_data;
 
-void	init_data(t_data *data, char *filename);
-
+t_data	*init_data(char *filename);
+void	free_data(t_data *data);
+void	mlx_utils_init(t_data *data);
 #endif

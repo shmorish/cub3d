@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_file_extension.c                             :+:      :+:    :+:   */
+/*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/23 17:02:19 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 23:28:23 by morishitash      ###   ########.fr       */
+/*   Created: 2023/10/23 19:48:05 by morishitash       #+#    #+#             */
+/*   Updated: 2023/10/23 23:28:01 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/check_arg.h"
+#include "../includes/cub3d.h"
 
-// Check the file is .cub file
-int	check_file_extension(char **argv)
+void	free_data(t_data *data)
 {
-	if (ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".cub", 4) != 0)
-	{
-		err_msg(INVALID_FILE_EXT);
-		return (INVALID);
-	}
-	return (VALID);
+	// mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
+	free(data->mlx_utils);
+	data->mlx_utils = NULL;
+	free(data->map);
+	data->map = NULL;
+	free(data);
+	data = NULL;
 }

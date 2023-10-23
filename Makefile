@@ -1,6 +1,9 @@
 NAME = cub3D
 
-SRC = main.c
+SRC = main.c \
+		data_init.c \
+		free_data.c \
+		mlx_utils_init.c \
 
 CHECK_ARG_SRC = check_arg.c \
 				check_file_extension.c \
@@ -23,7 +26,11 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror -MP -MMD
 INC = -I./includes/cub3d.h -I./includes/parser.h -I./includes/check_arg.h
 
-ifeq ($(DEBUG), true)
+ifeq ($(MAKECMDGOALS), debug)
+	CFLAGS += -DDEBUG
+endif
+
+ifeq ($(MAKECMDGOALS), address)
 	CFLAGS += -g3 -fsanitize=address
 endif
 
@@ -52,6 +59,8 @@ fclean : clean
 re : fclean all
 
 debug : re
-	$(MAKE) DEBUG=true
 
-.PHONY : all clean fclean re debug
+norm :
+	norminette $(SRCDIR) includes
+
+.PHONY : all clean fclean re debug norm address
