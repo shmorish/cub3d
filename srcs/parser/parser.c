@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:39:41 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:49:18 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 15:23:54 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,16 @@ t_parser	*init_parser(char *filename)
 
 void	putdata_to_parser(t_parser *parser)
 {
-	puttexture_to_parser(parser);
+	int	fd;
+
+	fd = open(parser->filename, O_RDONLY);
+	if (fd == -1)
+		exit(err_msg(OPEN_ERR));
+	puttexture_to_parser(parser, fd);
 	check_texture_path(parser);
-	// putcolor_to_parser(parser);
-	// check_color(parser);
+	putcolor_to_parser(parser, fd);
+	check_color(parser);
 	// putmap_to_parser(parser);
 	// check_map(parser);
+	close(fd);
 }

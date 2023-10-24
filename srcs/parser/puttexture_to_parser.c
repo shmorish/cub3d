@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 06:53:03 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:57:22 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 15:21:52 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,8 @@ static void	check_texture_declaration(t_parser *parser);
 static void	substr_texture_path(t_parser *parser);
 static void	print_texture(t_parser *parser);
 
-void	puttexture_to_parser(t_parser *parser)
+void	puttexture_to_parser(t_parser *parser, int fd)
 {
-	int	fd;
-
-	fd = open(parser->filename, O_RDONLY);
-	if (fd == -1)
-		exit(err_msg(OPEN_ERR));
 	parser->north_texture = get_next_line(fd);
 	if (parser->north_texture == NULL)
 		exit(err_msg(NO_NORTH_TEXTURE_ERR));
@@ -38,7 +33,6 @@ void	puttexture_to_parser(t_parser *parser)
 	check_texture_declaration(parser);
 	substr_texture_path(parser);
 	print_texture(parser);
-	close(fd);
 }
 
 static void	check_texture_declaration(t_parser *parser)
@@ -57,18 +51,25 @@ static void	substr_texture_path(t_parser *parser)
 {
 	char	*tmp;
 
-	tmp = ft_substr(parser->north_texture, 3, ft_strlen(parser->north_texture));
+	tmp = ft_substr(parser->north_texture, 3,
+			ft_strlen(parser->north_texture) - 4);
 	free(parser->north_texture);
 	parser->north_texture = tmp;
-	tmp = ft_substr(parser->south_texture, 3, ft_strlen(parser->south_texture));
+	tmp = ft_substr(parser->south_texture, 3,
+			ft_strlen(parser->south_texture) - 4);
 	free(parser->south_texture);
 	parser->south_texture = tmp;
-	tmp = ft_substr(parser->west_texture, 3, ft_strlen(parser->west_texture));
+	tmp = ft_substr(parser->west_texture, 3,
+			ft_strlen(parser->west_texture) - 4);
 	free(parser->west_texture);
 	parser->west_texture = tmp;
-	tmp = ft_substr(parser->east_texture, 3, ft_strlen(parser->east_texture));
+	tmp = ft_substr(parser->east_texture, 3,
+			ft_strlen(parser->east_texture) - 4);
 	free(parser->east_texture);
 	parser->east_texture = tmp;
+	if (parser->north_texture == NULL || parser->south_texture == NULL
+		|| parser->west_texture == NULL || parser->east_texture == NULL)
+		exit(err_msg(MALLOC_ERR));
 }
 
 #ifdef DEBUG

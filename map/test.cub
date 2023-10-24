@@ -1,7 +1,7 @@
-NO ./texture/direction/std_wall_n.xpm
-SO ./texture/direction/std_wall_s.xpm
-WE ./texture/direction/std_wall_w.xpm
-EA ./texture/direction/std_wall_e.xpm
+NO std_wall_n.xpm
+SO std_wall_n.xpm
+WE std_wall_n.xpm
+EA std_wall_n.xpm
 F 200,200,0
 C 225,30,0
 

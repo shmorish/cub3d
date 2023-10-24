@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 17:35:42 by morishitash       #+#    #+#             */
-/*   Updated: 2023/08/04 17:23:50 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 15:32:19 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	ft_isint(char *str)
 	size_t	i;
 
 	i = 0;
-	if (str[i] == '-')
-		i++;
 	if (str[i] == '\0')
 		return (0);
 	if (ft_strlen(str) > 11)

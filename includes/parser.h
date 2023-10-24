@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:49:35 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 15:46:39 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,29 @@ typedef struct s_parser		t_parser;
 # define NO_SOUTH_TEXTURE_ERR "No south texture.\n"
 # define NO_WEST_TEXTURE_ERR "No west texture.\n"
 # define NO_EAST_TEXTURE_ERR "No east texture.\n"
+// check texture extension error
+# define NORTH_TEXT_EXT_ERR "North texture extension is not correct.\n"
+# define SOUTH_TEXT_EXT_ERR "South texture extension is not correct.\n"
+# define WEST_TEXT_EXT_ERR "West texture extension is not correct.\n"
+# define EAST_TEXT_EXT_ERR "East texture extension is not correct.\n"
+// check color
+# define NO_FLOOR_COLOR_ERR "No floor color.\n"
+# define INVALD_FLOOR_COLOR_ERR "Invalid floor color.\n"
+# define NO_CEILING_COLOR_ERR "No ceiling color.\n"
+# define INVALD_CEILING_COLOR_ERR "Invalid ceiling color.\n"
+# define FLOOR_COLOR_OUT_OF_RANGE "Floor color is out of range.\n"
+# define CEILING_COLOR_OUT_OF_RANGE "Ceiling color is out of range.\n"
 
 // puttexture_to_parser.c
-void	puttexture_to_parser(t_parser *parser);
+void	puttexture_to_parser(t_parser *parser, int fd);
 // check_texture_path.c
 void	check_texture_path(t_parser *parser);
-
+// putcolor_to_parser.c
+void	putcolor_to_parser(t_parser *parser, int fd);
+// putcolor_ceiling.c
+void	putceiling_color_to_parser(t_parser *parser, int fd);
+// putcolor_floor.c
+void	putfloor_color_to_paraser(t_parser *parser, int fd);
+// check_color.c
+void	check_color(t_parser *parser);
 #endif

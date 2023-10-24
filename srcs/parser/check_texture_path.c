@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 07:48:54 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 08:08:15 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/24 15:13:55 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,12 @@ void	check_texture_path(t_parser *parser)
 
 void	check_texture_extension(t_parser *parser)
 {
-	if (ft_strncmp(ft_strrchr(parser->north_texture, '.'), ".xpm", 4) != 0)
-		exit(err_msg("North texture extension"));
+	if (ft_memcmp(ft_strrchr(parser->north_texture, '.'), ".xpm", 5) != 0)
+		exit(err_msg(NORTH_TEXT_EXT_ERR));
 	if (ft_strncmp(ft_strrchr(parser->south_texture, '.'), ".xpm", 4) != 0)
-		exit(err_msg("South texture extension"));
+		exit(err_msg(SOUTH_TEXT_EXT_ERR));
 	if (ft_strncmp(ft_strrchr(parser->west_texture, '.'), ".xpm", 4) != 0)
-		exit(err_msg("West texture extension"));
+		exit(err_msg(WEST_TEXT_EXT_ERR));
 	if (ft_strncmp(ft_strrchr(parser->east_texture, '.'), ".xpm", 4) != 0)
-		exit(err_msg("East texture extension"));
+		exit(err_msg(EAST_TEXT_EXT_ERR));
 }
-// .xpma とか 弾けてない

@@ -11,7 +11,10 @@ CHECK_ARG_SRC = check_arg.c \
 				err_msg.c \
 
 PARSER_SRC = parser.c \
+				check_color.c \
 				check_texture_path.c \
+				putcolor_ceiling.c \
+				putcolor_floor.c \
 				putcolor_to_parser.c \
 				puttexture_to_parser.c \
 
@@ -71,6 +74,8 @@ fclean : clean
 re : fclean all
 
 debug : re
+
+address : re
 
 norm :
 	norminette $(SRCDIR) includes
