@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:34:09 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 16:01:10 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 01:41:10 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	putceiling_color_to_parser(t_parser *parser, int fd)
 	if (ft_isint(color[0]) == 0 || ft_isint(color[1]) == 0
 		|| ft_isint(color[2]) == 0)
 		exit(err_msg(INVALD_CEILING_COLOR_ERR));
-	parser->ceiling_color_r= ft_atoi(color[0]);
+	parser->ceiling_color_r = ft_atoi(color[0]);
 	parser->ceiling_color_g = ft_atoi(color[1]);
 	parser->ceiling_color_b = ft_atoi(color[2]);
 	free_color_line(color, line);

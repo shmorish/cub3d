@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:39:41 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 15:23:54 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 03:12:49 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ t_parser	*init_parser(char *filename)
 {
 	t_parser	*parser;
 
-	parser = (t_parser *)malloc(sizeof(t_parser));
-	if (parser == NULL)
-		exit(err_msg(MALLOC_ERR));
+	parser = (t_parser *)malloc_err(sizeof(t_parser));
 	parser->filename = filename;
 	parser->north_texture = NULL;
 	parser->south_texture = NULL;
@@ -62,7 +60,7 @@ void	putdata_to_parser(t_parser *parser)
 	check_texture_path(parser);
 	putcolor_to_parser(parser, fd);
 	check_color(parser);
-	// putmap_to_parser(parser);
+	putmap_to_parser(parser, fd);
 	// check_map(parser);
 	close(fd);
 }

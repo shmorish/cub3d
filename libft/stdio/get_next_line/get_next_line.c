@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 23:03:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/23 11:29:12 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 00:39:25 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ char	*gnl_strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	ret = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	ret = (char *)malloc_err(sizeof(char) * \
+		(ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!ret)
 	{
 		free(s1);
@@ -43,7 +44,7 @@ char	*read_buffer(int fd, char **store)
 
 	while (1)
 	{
-		buf = (char *)malloc(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
+		buf = (char *)malloc_err(sizeof(char) * ((size_t)BUFFER_SIZE + 1));
 		if (!buf)
 			return (NULL);
 		read_size = read(fd, buf, BUFFER_SIZE);
@@ -73,7 +74,7 @@ char	*concat_to_line(char *store)
 		i++;
 	if (store[i] == '\n')
 		i++;
-	line = (char *)malloc(sizeof(char) * (i + 1));
+	line = (char *)malloc_err(sizeof(char) * (i + 1));
 	if (!line)
 	{
 		free(store);
@@ -107,7 +108,7 @@ char	*update_store(char *store)
 		free(store);
 		return (NULL);
 	}
-	new_store = (char *)malloc(sizeof(char) * (ft_strlen(store) - i + 1));
+	new_store = (char *)malloc_err(sizeof(char) * (ft_strlen(store) - i + 1));
 	if (!new_store)
 		return (NULL);
 	i++;

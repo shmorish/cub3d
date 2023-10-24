@@ -6,25 +6,11 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:43:22 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 02:31:01 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	free_parser(t_parser *parser)
-{
-	free(parser->north_texture);
-	parser->north_texture = NULL;
-	free(parser->south_texture);
-	parser->south_texture = NULL;
-	free(parser->west_texture);
-	parser->west_texture = NULL;
-	free(parser->east_texture);
-	parser->east_texture = NULL;
-	free(parser);
-	parser = NULL;
-}
 
 int	main(int argc, char **argv)
 {

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   map_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 23:03:09 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 00:39:47 by morishitash      ###   ########.fr       */
+/*   Created: 2023/10/25 03:04:39 by morishitash       #+#    #+#             */
+/*   Updated: 2023/10/25 03:11:24 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../../includes/parser.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2
-# endif
+char	**map_parse(char **map)
+{
+	int		i;
+	char	*tmp;
 
-# ifndef OPEN_MAX
-#  define OPEN_MAX 256
-# endif
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <fcntl.h>
-# include "../../includes/libft.h"
-# include "../../../includes/cub3d.h"
-
-char	*get_next_line(int fd);
-
-#endif
+	i = 0;
+	if (map == NULL)
+		exit(err_msg(NO_MAP_ERR));
+	while (map[i] != NULL)
+	{
+		tmp = ft_substr(map[i], 0, ft_strlen(map[i]) - 1);
+		free(map[i]);
+		map[i] = tmp;
+		i++;
+	}
+	return (map);
+}

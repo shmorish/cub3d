@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 15:46:39 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 03:09:22 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ typedef struct s_parser		t_parser;
 # define INVALD_CEILING_COLOR_ERR "Invalid ceiling color.\n"
 # define FLOOR_COLOR_OUT_OF_RANGE "Floor color is out of range.\n"
 # define CEILING_COLOR_OUT_OF_RANGE "Ceiling color is out of range.\n"
+// check map
+# define NO_MAP_ERR "No map.\n"
 
+// free_parser.c
+void	free_parser(t_parser *parser);
 // puttexture_to_parser.c
 void	puttexture_to_parser(t_parser *parser, int fd);
 // check_texture_path.c
@@ -48,4 +52,9 @@ void	putceiling_color_to_parser(t_parser *parser, int fd);
 void	putfloor_color_to_paraser(t_parser *parser, int fd);
 // check_color.c
 void	check_color(t_parser *parser);
+// putmap_to_parser.c
+void	putmap_to_parser(t_parser *parser, int fd);
+// map_parse.c
+char	**map_parse(char **map);
+
 #endif

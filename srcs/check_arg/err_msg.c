@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:43:07 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:59:34 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 00:42:04 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,17 @@ int	perror_msg(char *msg)
 	perror(msg);
 	ft_putstr_fd(RESET, 2);
 	return (1);
+}
+
+void	*malloc_err(size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(size);
+	if (ptr == NULL)
+	{
+		err_msg(MALLOC_ERR);
+		exit(1);
+	}
+	return (ptr);
 }

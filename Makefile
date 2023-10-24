@@ -13,9 +13,12 @@ CHECK_ARG_SRC = check_arg.c \
 PARSER_SRC = parser.c \
 				check_color.c \
 				check_texture_path.c \
+				free_parser.c \
+				map_parse.c \
 				putcolor_ceiling.c \
 				putcolor_floor.c \
 				putcolor_to_parser.c \
+				putmap_to_parser.c \
 				puttexture_to_parser.c \
 
 SRCDIR = srcs

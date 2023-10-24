@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:30:03 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 03:12:41 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ typedef enum e_direction
 	EAST
 }	t_direction;
 
-
 typedef struct s_parser
 {
 	char		*filename;
@@ -109,4 +108,5 @@ t_data		*init_data(void);
 void		free_data(t_data *data);
 void		mlx_utils_init(t_data *data);
 t_parser	*init_parser(char *filename);
+
 #endif

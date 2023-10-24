@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:38:55 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 08:03:55 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 00:38:23 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ int		check_file_invalid(char **argv);
 // err_msg.c
 int		err_msg(char *msg);
 int		perror_msg(char *msg);
+void	*malloc_err(size_t size);
 
 #endif
