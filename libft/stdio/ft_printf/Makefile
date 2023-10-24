@@ -17,10 +17,12 @@ SRCS = ft_printf.c \
 
 OBJS = $(SRCS:.c=.o)
 
-CHECK = \033[32m[✔]\033[0m
-REMOVE = \033[31m[✘]\033[0m
-BLUE = \033[1;34m
-RESET = \033[0m
+CHECK		= \033[32m[✔]\033[0m
+REMOVE		= \033[31m[✘]\033[0m
+GENERATE	= \033[33m[➤]\033[0m
+BLUE		= \033[1;34m
+YELLOW		= \033[1;33m
+RESET		= \033[0m
 
 all: $(NAME)
 
@@ -32,6 +34,7 @@ $(NAME): $(OBJS)
 # for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
 
 # for Ubuntu
 # %.o: %.c $(INCLUDE)
@@ -39,11 +42,11 @@ $(NAME): $(OBJS)
 
 clean:
 	@ $(RM) $(OBJS)
-	@echo "$(REMOVE) $(BLUE)Remove ft_printf object files... $(RESET)"
+	@echo "$(REMOVE) $(BLUE)Remove ft_printf object files. $(RESET)"
 
-fclean: clean
-	@ $(RM) $(NAME)
-	@echo "$(REMOVE) $(BLUE)Remove $(NAME)$(RESET)"
+fclean:
+	@ $(RM) $(NAME) $(OBJS)
+	@echo "$(REMOVE) $(BLUE)Remove ft_printf object files and $(NAME). $(RESET)"
 
 re: fclean all
 

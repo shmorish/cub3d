@@ -36,7 +36,7 @@ PARSER_OBJDIR = objs/parser
 OBJS += $(addprefix $(PARSER_OBJDIR)/, $(PARSER_SRC:.c=.o))
 
 CFLAGS = -Wall -Wextra -Werror -MP -MMD
-RM = rm -f
+RM = rm -rf
 
 INC = -I./includes/cub3d.h \
 		-I./includes/parser.h \
@@ -52,27 +52,38 @@ ifeq ($(MAKECMDGOALS), address)
 	CFLAGS += -g3 -fsanitize=address
 endif
 
+CHECK		= \033[32m[✔]\033[0m
+REMOVE		= \033[31m[✘]\033[0m
+GENERATE	= \033[33m[➤]\033[0m
+BLUE		= \033[1;34m
+YELLOW		= \033[1;33m
+RESET		= \033[0m
+
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	$(MAKE) -C ./libft
-	$(MAKE) -C ./mlx
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit
+	@ $(MAKE) -C ./libft
+	@ $(MAKE) -C ./mlx
+	@ $(CC) $(CFLAGS) -o $@ $^ $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit
+	@ echo "$(CHECK) $(BLUE)Compiling cub3D...$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR)
-	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR)
+	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
 
 clean :
-	$(MAKE) -C ./libft clean
-	$(MAKE) -C ./mlx clean
-	$(RM) $(OBJS)
-	rm -rf $(OBJDIR)
+	@ $(MAKE) -C ./libft clean
+	@ $(MAKE) -C ./mlx clean
+	@ $(RM) $(OBJDIR)
+	@ echo "$(REMOVE) $(BLUE)Remove cub3D object files. $(RESET)"
 
-fclean : clean
-	$(MAKE) -C ./libft fclean
-	$(MAKE) -C ./mlx clean
-	$(RM) $(NAME)
+fclean :
+	@ $(RM) $(OBJDIR) $(NAME)
+	@ $(MAKE) -C ./libft fclean
+	@ $(MAKE) -C ./mlx fclean
+	@ $(RM) $(NAME)
+	@ echo "$(REMOVE) $(BLUE)Remove cub3D object files and $(NAME). $(RESET)"
 
 re : fclean all
 

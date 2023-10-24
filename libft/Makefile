@@ -31,7 +31,7 @@ STDIO_SRC     = ft_putchar_fd.c \
 				ft_putendl_fd.c \
 				ft_putnbr_fd.c \
 				ft_putstr_fd.c \
-				get_next_line/get_next_line.c
+				get_next_line/get_next_line.c \
 				  
 STDLIB_SRC    = ft_abs.c \
 				ft_atoi.c \
@@ -89,10 +89,12 @@ SRCS          = $(CTYPE_SRCS) \
 				$(STRING_SRCS)
 OBJS          = $(SRCS:.c=.o)
 
-CHECK         = \033[32m[✔]\033[0m
-REMOVE        = \033[31m[✘]\033[0m
-BLUE          = \033[1;34m
-RESET         = \033[0m
+CHECK		= \033[32m[✔]\033[0m
+REMOVE		= \033[31m[✘]\033[0m
+GENERATE	= \033[33m[➤]\033[0m
+BLUE		= \033[1;34m
+YELLOW		= \033[1;33m
+RESET		= \033[0m
 
 all: $(NAME)
 
@@ -105,6 +107,7 @@ $(NAME): $(OBJS)
 # for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
 
 # for Ubuntu
 #  %.o: %.c $(INCLUDE)
@@ -113,12 +116,12 @@ $(NAME): $(OBJS)
 clean:
 	@ make clean -C $(PRINTF_PATH)
 	@ $(RM) $(OBJS)
-	@echo "$(REMOVE) $(BLUE)Remove libft object files... $(RESET)"
+	@echo "$(REMOVE) $(BLUE)Remove libft object files. $(RESET)"
 
-fclean: clean
-	@ $(RM) $(NAME)
+fclean:
+	@ $(RM) $(NAME) $(OBJS)
 	@ make fclean -C $(PRINTF_PATH)
-	@echo "$(REMOVE) $(BLUE)Remove $(NAME)$(RESET)"
+	@echo "$(REMOVE) $(BLUE)Remove libft object files and $(NAME). $(RESET)"
 
 re: fclean all
 

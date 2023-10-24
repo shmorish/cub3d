@@ -11,14 +11,37 @@ CFLAGS+=-O2 -w
 # add to match string put with X11 in size and position
 CFLAGS+= -DSTRINGPUTX11
 
+CHECK		= \033[32m[✔]\033[0m
+REMOVE		= \033[31m[✘]\033[0m
+GENERATE	= \033[33m[➤]\033[0m
+BLUE		= \033[1;34m
+YELLOW		= \033[1;33m
+RESET		= \033[0m
+
 all: $(NOM)
 
 $(NOM):	$(OBJ)
-	ar -r $(NOM) $(OBJ)
-	ranlib $(NOM)
+	@ ar rc $(NOM) $(OBJ)
+	@ ranlib $(NOM)
+	@echo "$(CHECK) $(BLUE)Compiling minilbx...$(RESET)"
+
+%.o: %.c
+	@ cc -c $< -o $@ $(CFLAGS)
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+
+
+%.o: %.m
+	@ cc -c $< -o $@ $(CFLAGS)
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
 
 clean:
-	rm -f $(NOM) $(OBJ) *~
-	rm -f mlx_app
+	@ rm -f $(NOM) $(OBJ) *~
+	@ rm -f mlx_app
+	@ echo "$(REMOVE) $(BLUE)Remove minilbx object files. $(RESET)"
 
-re: clean all
+fclean:
+	@ rm -f $(NOM) $(OBJ) *~
+	@ rm -f mlx_app
+	@ echo "$(REMOVE) $(BLUE)Remove minilbx object files and $(NOM). $(RESET)"
+
+re: fclean all
