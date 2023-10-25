@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:26:43 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 15:59:41 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 16:15:13 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	get_start_point_y(char **map)
 		while (map[y][x] != '\0')
 		{
 			if (is_player(map[y][x]) == true)
-				return (x);
+				return (y);
 			x++;
 		}
 		y++;

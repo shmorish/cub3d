@@ -19,6 +19,7 @@ PARSER_SRC = parser.c \
 				free_parser.c \
 				get_map_data.c \
 				get_start_point.c \
+				is_player.c \
 				map_parse.c \
 				putcolor_ceiling.c \
 				putcolor_floor.c \
