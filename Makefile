@@ -12,8 +12,13 @@ CHECK_ARG_SRC = check_arg.c \
 
 PARSER_SRC = parser.c \
 				check_color.c \
+				check_map_closed.c \
+				check_map.c \
+				check_player.c \
 				check_texture_path.c \
 				free_parser.c \
+				get_map_data.c \
+				get_start_point.c \
 				map_parse.c \
 				putcolor_ceiling.c \
 				putcolor_floor.c \

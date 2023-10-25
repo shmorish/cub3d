@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 01:28:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 03:04:10 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 15:31:20 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ char	**get_map(int fd)
 void	putmap_to_parser(t_parser *parser, int fd)
 {
 	parser->map = map_parse(get_map(fd));
+	parser->map_height = get_map_height(parser->map);
+	parser->map_width = get_map_width(parser->map);
+	parser->start_point_x = get_start_point_x(parser->map);
+	parser->start_point_y = get_start_point_y(parser->map);
+	if (parser->start_point_x == -1 || parser->start_point_y == -1)
+		err_msg(INVALID_MAP_NO_PLAYER);
 	print_map(parser->map);
 }	
 

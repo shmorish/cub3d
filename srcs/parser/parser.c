@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:39:41 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 03:12:49 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 14:47:59 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,6 @@ void	putdata_to_parser(t_parser *parser)
 	putcolor_to_parser(parser, fd);
 	check_color(parser);
 	putmap_to_parser(parser, fd);
-	// check_map(parser);
+	check_map(parser);
 	close(fd);
 }

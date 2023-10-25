@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 03:09:22 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 16:08:06 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ typedef struct s_parser		t_parser;
 # define CEILING_COLOR_OUT_OF_RANGE "Ceiling color is out of range.\n"
 // check map
 # define NO_MAP_ERR "No map.\n"
+# define INVALID_MAP_MSG "Map is not surrounded by walls\n"
+# define INVALID_MAP_PLAYER_MSG "Map has more than one player\n"
+# define INVALID_MAP_NO_PLAYER "Map has no player\n"
+// not used
+# define INVALID_MAP_CHAR "Map has invalid characters\n"
 
 // free_parser.c
 void	free_parser(t_parser *parser);
@@ -56,5 +61,18 @@ void	check_color(t_parser *parser);
 void	putmap_to_parser(t_parser *parser, int fd);
 // map_parse.c
 char	**map_parse(char **map);
-
+// get_map_data.c
+int		get_map_height(char **map);
+int		get_map_width(char **map);
+// check_map.c
+void	check_map(t_parser *parser);
+// check_player.c
+void	exist_player(char **map);
+// check_map_closed.c
+void	is_map_closed(t_parser *parser, int check_x, int check_y);
+// get_start_point.c
+int		get_start_point_x(char **map);
+int		get_start_point_y(char **map);
+// is_player.c
+bool	is_player(char c);
 #endif

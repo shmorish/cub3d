@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:38:55 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 00:38:23 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 15:19:54 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,9 @@
 
 # include "cub3d.h"
 
-// print errors (used)
+// print errors
 # define NOFILE_IN_ARG "No file in argument\n"
 # define INVALID_FILE_EXT "Invalid file extension\n"
-// print errors (not used)
-# define INVALID_MAP "Invalid map\n"
-# define INVALID_MAP_MSG "Map is not surrounded by walls\n"
-# define INVALID_MAP_CHAR "Map has invalid characters\n"
-# define INVALID_MAP_PLAYER_MSG "Map has more than one player\n"
-# define INVALID_MAP_NO_PLAYER "Map has no player\n"
 
 // check_arg.c
 int		check_args(int argc, char **argv);

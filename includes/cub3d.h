@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 03:12:41 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/25 15:25:16 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,10 @@ typedef struct s_parser
 
 	t_direction	player_dir;
 	char		**map;
+	int			map_width;
+	int			map_height;
+	int			start_point_x;
+	int			start_point_y;
 }	t_parser;
 
 t_data		*init_data(void);
