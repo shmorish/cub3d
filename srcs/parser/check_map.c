@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:48:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 16:49:48 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/30 20:49:42 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-static char	**map_copy(char	**map, int map_height)
+char	**map_copy(char	**map, int map_height)
 {
 	char	**map_dup;
 	int		i;
@@ -22,6 +22,8 @@ static char	**map_copy(char	**map, int map_height)
 	while (map[i] != NULL)
 	{
 		map_dup[i] = ft_strdup(map[i]);
+		if (map_dup[i] == NULL)
+			exit(err_msg(MALLOC_ERR));
 		i++;
 	}
 	map_dup[i] = NULL;

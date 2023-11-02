@@ -11,6 +11,7 @@ CHECK_ARG_SRC = check_arg.c \
 				err_msg.c \
 
 PARSER_SRC = parser.c \
+				arrange_map.c \
 				check_color.c \
 				check_map_closed.c \
 				check_map.c \

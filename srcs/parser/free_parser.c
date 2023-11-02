@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   free_parser.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 02:30:53 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 02:38:44 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/02 20:37:22 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-static void	free_map(char **map)
+void	free_map(char **map)
 {
 	int	i;
 

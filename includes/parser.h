@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 16:48:32 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/02 20:38:54 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ typedef struct s_parser		t_parser;
 
 // free_parser.c
 void	free_parser(t_parser *parser);
+void	free_map(char **map);
 // puttexture_to_parser.c
 void	puttexture_to_parser(t_parser *parser, int fd);
 // check_texture_path.c
@@ -66,6 +67,7 @@ int		get_map_height(char **map);
 int		get_map_width(char **map);
 // check_map.c
 void	check_map(t_parser *parser);
+char	**map_copy(char	**map, int map_height);
 // check_player.c
 void	exist_player(char **map);
 // check_map_closed.c
@@ -75,4 +77,6 @@ int		get_start_point_x(char **map);
 int		get_start_point_y(char **map);
 // is_player.c
 bool	is_player(char c);
+// arrenge_map.c
+void    arrange_map(t_parser *parser);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:39:41 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 14:47:59 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/10/30 20:43:28 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void	putdata_to_parser(t_parser *parser);
 
-// map 情報
+// map info
 // 
-// NO: 北向きの壁のテクスチャ
-// SO: 南向きの壁のテクスチャ
-// WE: 西向きの壁のテクスチャ
-// EA: 東向きの壁のテクスチャ
+// NO: North Wall Texture
+// SO: South Wall Texture
+// WE: West Wall Texture
+// EA: East Wall Texture
 // 
-// F: 床の色 (R,G,B)
-// C: 天井の色 (R,G,B)
+// F: Floor color (R,G,B)
+// C: Cieling color (R,G,B)
 //
-// 0: enpty
+// 0: empty
 // 1: wall
 // N: player (N,S,W,E)
 t_parser	*init_parser(char *filename)
@@ -61,6 +61,7 @@ void	putdata_to_parser(t_parser *parser)
 	putcolor_to_parser(parser, fd);
 	check_color(parser);
 	putmap_to_parser(parser, fd);
+	arrange_map(parser);
 	check_map(parser);
 	close(fd);
 }
