@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/02 20:35:54 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/07 02:15:19 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,13 +93,10 @@ typedef struct s_parser
 	char		*south_texture;
 	char		*west_texture;
 	char		*east_texture;
+	char		*sprite_texture; // 未実装
 
-	int			floor_color_r;
-	int			floor_color_g;
-	int			floor_color_b;
-	int			ceiling_color_r;
-	int			ceiling_color_g;
-	int			ceiling_color_b;
+	int			floor_color;
+	int			ceiling_color;
 
 	t_direction	player_dir;
 	char		**map;

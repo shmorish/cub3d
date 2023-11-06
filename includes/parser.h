@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/02 20:38:54 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/07 02:15:56 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_parser		t_parser;
 # define INVALD_CEILING_COLOR_ERR "Invalid ceiling color.\n"
 # define FLOOR_COLOR_OUT_OF_RANGE "Floor color is out of range.\n"
 # define CEILING_COLOR_OUT_OF_RANGE "Ceiling color is out of range.\n"
+# define COLOR_OUT_OF_RANGE "Color is out of range.\n"
 // check map
 # define NO_MAP_ERR "No map.\n"
 # define INVALID_MAP_MSG "Map is not surrounded by walls\n"
@@ -78,5 +79,7 @@ int		get_start_point_y(char **map);
 // is_player.c
 bool	is_player(char c);
 // arrenge_map.c
-void    arrange_map(t_parser *parser);
+void	arrange_map(t_parser *parser);
+// color_bitshift.c
+int		color_bitshift(int r, int g, int b);
 #endif

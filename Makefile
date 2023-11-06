@@ -17,6 +17,7 @@ PARSER_SRC = parser.c \
 				check_map.c \
 				check_player.c \
 				check_texture_path.c \
+				color_bitshift.c \
 				free_parser.c \
 				get_map_data.c \
 				get_start_point.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:39:41 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/30 20:43:28 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/07 01:17:10 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,8 @@ t_parser	*init_parser(char *filename)
 	parser->south_texture = NULL;
 	parser->west_texture = NULL;
 	parser->east_texture = NULL;
-	parser->floor_color_r = -1;
-	parser->floor_color_g = -1;
-	parser->floor_color_b = -1;
-	parser->ceiling_color_r = -1;
-	parser->ceiling_color_g = -1;
-	parser->ceiling_color_b = -1;
+	parser->floor_color = -1;
+	parser->ceiling_color = -1;
 	parser->player_dir = UNKNOWN;
 	parser->map = NULL;
 	putdata_to_parser(parser);
