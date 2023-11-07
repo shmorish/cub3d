@@ -99,6 +99,10 @@ debug : re
 
 address : re
 
+tester :
+	@ make re > /dev/null
+	@ bash invalidmap_test.sh
+
 norm :
 	norminette $(SRCDIR) includes
 
