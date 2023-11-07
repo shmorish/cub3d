@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:19:37 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 13:48:05 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/07 19:22:09 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	mlx_utils_init(t_data *data)
 	data->mlx_utils->mlx = mlx_init();
 	data->mlx_utils->win = mlx_new_window(data->mlx_utils->mlx,
 			WINDOW_WIDTH, WINDOW_WIDTH, "cub3d");
-	data->mlx_utils->win_width = WINDOW_WIDTH;
-	data->mlx_utils->win_height = WINDOW_HEIGHT;
 	if (data->mlx_utils->mlx == NULL || data->mlx_utils->win == NULL)
 		exit(err_msg(MALLOC_ERR));
 	print_mlx_utils_addr(data);
