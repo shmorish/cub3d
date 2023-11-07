@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 19:01:25 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:09:19 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(int argc, char **argv)
 	parser = init_parser(argv[1]);
 	data = init_data();
 	data->parser = parser;
+	draw_floor_sky(data);
+	mlx_loop(data->mlx_utils->mlx);
 	free_parser(parser);
 	data->parser = NULL;
 	free_data(data);

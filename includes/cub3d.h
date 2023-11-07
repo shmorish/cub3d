@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 19:00:46 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/07 20:18:49 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # include "check_arg.h"
 # include "parser.h"
+# include "draw.h"
 
 // print colors
 # define RED "\033[0;31m"
