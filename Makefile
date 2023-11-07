@@ -46,9 +46,7 @@ OBJS += $(addprefix $(PARSER_OBJDIR)/, $(PARSER_SRC:.c=.o))
 CFLAGS = -Wall -Wextra -Werror -MP -MMD
 RM = rm -rf
 
-INC = -I./includes/cub3d.h \
-		-I./includes/parser.h \
-		-I./includes/check_arg.h \
+INC = -I./includes/ -I./libft/includes -I./mlx
 
 LIBFT = libft/libft.a
 
@@ -106,4 +104,4 @@ tester :
 norm :
 	norminette $(SRCDIR) includes
 
-.PHONY : all clean fclean re debug norm address
+.PHONY : all clean fclean re debug norm address tester
