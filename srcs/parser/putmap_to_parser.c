@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 01:28:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 15:31:20 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/07 13:50:36 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	putmap_to_parser(t_parser *parser, int fd)
 	if (parser->start_point_x == -1 || parser->start_point_y == -1)
 		err_msg(INVALID_MAP_NO_PLAYER);
 	print_map(parser->map);
-}	
+}
 
 #ifdef DEBUG
 

@@ -102,6 +102,6 @@ tester :
 	@ bash invalidmap_test.sh
 
 norm :
-	norminette $(SRCDIR) includes
+	norminette srcs includes libft
 
 .PHONY : all clean fclean re debug norm address tester
