@@ -1,0 +1,40 @@
+<mxfile host="65bd71144e">
+    <diagram id="EWy8c1vneyaUhsAxnwkW" name="Page-1">
+        <mxGraphModel dx="1074" dy="767" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="引数を受け取る" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="20" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="有効なマップかどうか" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="無効な引数だったらerror" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="20" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="無効なマップだったらerror" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="120" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="構造体に格納" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="230" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;ol&gt;&lt;li&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;床と空を描画しよう&lt;/span&gt;&lt;/li&gt;&lt;li&gt;壁の描画をしよう&lt;/li&gt;&lt;ol&gt;&lt;li&gt;シンプルな部屋の壁を描画しよう&lt;/li&gt;&lt;li&gt;ちょっと壁を増やしてみよう&lt;/li&gt;&lt;/ol&gt;&lt;li&gt;身体の向きを変えてみよう&lt;/li&gt;&lt;li&gt;動いてみよう&lt;/li&gt;&lt;/ol&gt;" style="text;strokeColor=none;fillColor=none;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="20" width="270" height="150" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
