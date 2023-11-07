@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 02:15:19 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/07 13:47:47 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct s_parser
 	char		*south_texture;
 	char		*west_texture;
 	char		*east_texture;
-	char		*sprite_texture; // 未実装
+	char		*sprite_texture;
 
 	int			floor_color;
 	int			ceiling_color;
