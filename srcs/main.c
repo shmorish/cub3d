@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 19:29:34 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/07 19:40:14 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	main(int argc, char **argv)
 		return (1);
 	parser = init_parser(argv[1]);
 	data = init_data();
+	data->parser = parser;
 	free_parser(parser);
+	data->parser = NULL;
 	free_data(data);
 	return (0);
 }

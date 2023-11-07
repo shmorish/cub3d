@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 19:48:05 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/24 07:42:24 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/07 19:03:40 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	free_data(t_data *data)
 {
 	free(data->mlx_utils);
 	data->mlx_utils = NULL;
-	free(data->map);
-	data->map = NULL;
 	free(data);
 	data = NULL;
 }

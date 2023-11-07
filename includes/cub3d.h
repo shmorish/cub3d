@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 13:47:47 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/07 19:00:46 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,9 @@ typedef struct s_mlx_utils
 	void	*win;
 	void	*img;
 	char	*addr;
-	int		win_width;
-	int		win_height;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 }	t_mlx_utils;
 
 typedef struct s_map
@@ -74,6 +75,7 @@ typedef struct s_data
 {
 	t_mlx_utils	*mlx_utils;
 	t_map		*map;
+	t_parser	*parser;
 }	t_data;
 
 typedef enum e_direction
@@ -93,7 +95,9 @@ typedef struct s_parser
 	char		*south_texture;
 	char		*west_texture;
 	char		*east_texture;
-	char		*sprite_texture;
+	char		*sprite_texture; // 未実装 -> なければbonusなし　-> あればbonus
+
+	bool		is_bonus;
 
 	int			floor_color;
 	int			ceiling_color;
