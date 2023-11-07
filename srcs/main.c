@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 02:31:01 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/07 19:01:25 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int	main(int argc, char **argv)
 		return (1);
 	parser = init_parser(argv[1]);
 	data = init_data();
+	data->parser = parser;
 	free_parser(parser);
+	data->parser = NULL;
 	free_data(data);
 	return (0);
 }
