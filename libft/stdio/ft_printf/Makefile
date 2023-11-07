@@ -3,7 +3,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-INCLUDE = './ft_printf.h'
+INCLUDE = ./
 
 SRCS = ft_printf.c \
 		ft_format.c \
