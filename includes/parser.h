@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 02:15:56 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/07 12:44:33 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ typedef struct s_parser		t_parser;
 # define NO_SOUTH_TEXTURE_ERR "No south texture.\n"
 # define NO_WEST_TEXTURE_ERR "No west texture.\n"
 # define NO_EAST_TEXTURE_ERR "No east texture.\n"
-// check texture extension error
-# define NORTH_TEXT_EXT_ERR "North texture extension is not correct.\n"
-# define SOUTH_TEXT_EXT_ERR "South texture extension is not correct.\n"
-# define WEST_TEXT_EXT_ERR "West texture extension is not correct.\n"
-# define EAST_TEXT_EXT_ERR "East texture extension is not correct.\n"
 // check color
 # define NO_FLOOR_COLOR_ERR "No floor color.\n"
 # define INVALD_FLOOR_COLOR_ERR "Invalid floor color.\n"
