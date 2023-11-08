@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.h                                             :+:      :+:    :+:   */
+/*   close.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 20:03:47 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/08 16:40:12 by hhino            ###   ########.fr       */
+/*   Created: 2023/11/08 16:32:33 by hhino             #+#    #+#             */
+/*   Updated: 2023/11/08 17:05:18 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DRAW_H
-# define DRAW_H
+#include "../../includes/handle_mlx.h"
 
-# include "cub3d.h"
+int	close_window_esc(int keycode, t_data *data)
+{
+	if (keycode == 53)
+	{
+		mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
+		exit (0);
+	}
+	return (0);
+}
 
-typedef struct s_data		t_data;
-
-void	draw_floor_sky(t_data *data);
-
-#endif
+int	close_window_botton(t_data *data)
+{
+	mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
+	exit(0);
+	return (0);
+}
