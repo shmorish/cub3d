@@ -9,8 +9,7 @@ CHECK_ARG_SRC = check_arg.c \
 				check_file_invalid.c \
 				err_msg.c \
 
-PARSER_SRC = parser.c \
-				arrange_map.c \
+PARSER_SRC = arrange_map.c \
 				check_color.c \
 				check_map_closed.c \
 				check_map.c \
@@ -22,11 +21,22 @@ PARSER_SRC = parser.c \
 				get_start_point.c \
 				is_player.c \
 				map_parse.c \
+				print_texture.c \
 				putcolor_ceiling.c \
 				putcolor_floor.c \
 				putcolor_to_parser.c \
 				putmap_to_parser.c \
-				puttexture_to_parser.c \
+
+ifeq ($(MAKECMDGOALS), bonus)
+	PARSER_SRC += parser_bonus.c \
+					puttexture_to_parser_bonus.c
+else ifeq ($(MAKECMDGOALS), debug_bonus)
+	PARSER_SRC += parser_bonus.c \
+					puttexture_to_parser_bonus.c
+else
+	PARSER_SRC += parser.c \
+					puttexture_to_parser.c
+endif
 
 DRAW_SRC = draw.c \
 
@@ -65,6 +75,8 @@ INC = -I./includes/ -I./libft/includes -I./mlx
 LIBFT = libft/libft.a
 
 ifeq ($(MAKECMDGOALS), debug)
+	CFLAGS += -DDEBUG
+else ifeq ($(MAKECMDGOALS), debug_bonus)
 	CFLAGS += -DDEBUG
 endif
 
@@ -109,6 +121,8 @@ re : fclean all
 
 debug : re
 
+debug_bonus : re
+
 address : re
 
 tester :
@@ -118,4 +132,6 @@ tester :
 norm :
 	norminette srcs includes libft
 
-.PHONY : all clean fclean re debug norm address tester
+bonus : all
+
+.PHONY : all clean fclean re bonus debug_bonus debug norm address tester

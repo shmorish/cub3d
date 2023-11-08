@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 18:17:10 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/08 18:27:43 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@
 # define WINDOW_HEIGHT 480
 
 typedef struct s_mlx_utils	t_mlx_utils;
-typedef struct s_map		t_map;
 typedef struct s_data		t_data;
 typedef struct s_parser		t_parser;
 
@@ -66,17 +65,9 @@ typedef struct s_mlx_utils
 	int		endian;
 }	t_mlx_utils;
 
-typedef struct s_map
-{
-	char	**map;
-	int		map_width;
-	int		map_height;
-}	t_map;
-
 typedef struct s_data
 {
 	t_mlx_utils	*mlx_utils;
-	t_map		*map;
 	t_parser	*parser;
 }	t_data;
 

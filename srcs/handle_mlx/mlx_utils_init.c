@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:19:37 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 18:17:48 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/08 18:27:50 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	print_mlx_utils_addr(t_data *data);
 
 void	mlx_utils_init(t_data *data)
 {
-	(void)data;
 	data->mlx_utils->mlx = mlx_init();
 	data->mlx_utils->win = mlx_new_window(data->mlx_utils->mlx, \
 			WINDOW_WIDTH, WINDOW_HEIGHT, "cub3d");
