@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:19:37 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 20:27:40 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/08 16:24:17 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static void	print_mlx_utils_addr(t_data *data);
 
 void	mlx_utils_init(t_data *data)
 {
-	(void)data;
 	data->mlx_utils->mlx = mlx_init();
 	data->mlx_utils->win = mlx_new_window(data->mlx_utils->mlx, \
 			WINDOW_WIDTH, WINDOW_HEIGHT, "cub3d");

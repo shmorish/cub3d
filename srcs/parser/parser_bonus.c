@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   parser_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:39:41 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 16:39:36 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/08 16:39:53 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_parser	*init_parser(char *filename)
 	parser->west_texture = NULL;
 	parser->east_texture = NULL;
 	parser->sprite_texture = NULL;
-	parser->is_bonus = false;
+	parser->is_bonus = true;
 	parser->floor_color = -1;
 	parser->ceiling_color = -1;
 	parser->player_dir = UNKNOWN;
