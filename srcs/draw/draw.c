@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:06:57 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/08 17:02:24 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/08 19:45:09 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	draw_floor_sky(t_data *data)
 	{
 		x = 0;
 		if (y < WINDOW_HEIGHT / 2)
-			color = data->parser->floor_color;
-		else
 			color = data->parser->ceiling_color;
+		else
+			color = data->parser->floor_color;
 		while (x < WINDOW_WIDTH)
 		{
 			my_mlx_pixel_put(data, x, y, color);

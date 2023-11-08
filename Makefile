@@ -102,7 +102,7 @@ $(NAME): $(OBJS)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR) $(DRAW_OBJDIR) $(HANDLE_MLX_OBJDIR)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 clean :
 	@ $(MAKE) -C ./libft clean

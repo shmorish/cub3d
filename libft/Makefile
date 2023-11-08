@@ -32,7 +32,7 @@ STDIO_SRC     = ft_putchar_fd.c \
 				ft_putnbr_fd.c \
 				ft_putstr_fd.c \
 				get_next_line/get_next_line.c \
-				  
+
 STDLIB_SRC    = ft_abs.c \
 				ft_atoi.c \
 				ft_atol.c \
@@ -107,7 +107,7 @@ $(NAME): $(OBJS)
 # for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 # for Ubuntu
 #  %.o: %.c $(INCLUDE)

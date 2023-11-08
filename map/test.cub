@@ -2,8 +2,8 @@ NO std_wall_n.xpm
 SO std_wall_n.xpm
 WE std_wall_n.xpm
 EA std_wall_n.xpm
-F 200,200,0
-C 225,30,0
+F 128,128,128
+C 0,255,255
 
         1111111111111111111111111
         1000000000010000000000001

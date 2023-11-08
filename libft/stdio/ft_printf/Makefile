@@ -34,7 +34,7 @@ $(NAME): $(OBJS)
 # for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 # for Ubuntu
 # %.o: %.c $(INCLUDE)

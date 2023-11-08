@@ -27,12 +27,12 @@ $(NOM):	$(OBJ)
 
 %.o: %.c
 	@ cc -c $< -o $@ $(CFLAGS)
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 
 %.o: %.m
 	@ cc -c $< -o $@ $(CFLAGS)
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 
 clean:
 	@ rm -f $(NOM) $(OBJ) *~
