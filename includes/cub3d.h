@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 20:18:49 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/08 18:17:10 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include "check_arg.h"
 # include "parser.h"
 # include "draw.h"
+# include "handle_mlx.h"
 
 // print colors
 # define RED "\033[0;31m"
@@ -113,7 +114,6 @@ typedef struct s_parser
 
 t_data		*init_data(void);
 void		free_data(t_data *data);
-void		mlx_utils_init(t_data *data);
 t_parser	*init_parser(char *filename);
 
 #endif

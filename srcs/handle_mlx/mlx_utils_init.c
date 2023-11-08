@@ -6,12 +6,12 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:19:37 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 20:27:40 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/08 18:17:48 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "../includes/cub3d.h"
+#include "../includes/handle_mlx.h"
 
 static void	print_mlx_utils_addr(t_data *data);
 
@@ -29,6 +29,8 @@ void	mlx_utils_init(t_data *data)
 	if (data->mlx_utils->mlx == NULL || data->mlx_utils->win == NULL)
 		exit(err_msg(MALLOC_ERR));
 	print_mlx_utils_addr(data);
+	mlx_hook(data->mlx_utils->win, 17, 1L << 2, close_window_botton, &data);
+	mlx_hook(data->mlx_utils->win, 2, 1L << 0, close_window_esc, &data);
 }
 
 #ifdef DEBUG

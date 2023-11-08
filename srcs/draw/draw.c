@@ -6,20 +6,13 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:06:57 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/07 20:30:29 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/08 17:02:24 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/draw.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
-{
-	char	*dst;
 
-	dst = data->mlx_utils->addr + (y * data->mlx_utils->line_length + \
-			x * (data->mlx_utils->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
 
 void	draw_floor_sky(t_data *data)
 {

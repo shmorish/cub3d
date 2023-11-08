@@ -3,7 +3,6 @@ NAME = cub3D
 SRC = main.c \
 		data_init.c \
 		free_data.c \
-		mlx_utils_init.c \
 
 CHECK_ARG_SRC = check_arg.c \
 				check_file_extension.c \
@@ -31,6 +30,10 @@ PARSER_SRC = parser.c \
 
 DRAW_SRC = draw.c \
 
+HANDLE_MLX_SRC = close.c \
+				pixel_put.c \
+				mlx_utils_init.c \
+
 
 SRCDIR = srcs
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
@@ -40,6 +43,8 @@ PARSER_SRCDIR = srcs/parser
 SRCS += $(addprefix $(PARSER_SRCDIR)/, $(PARSER_SRC))
 DRAW_SRCDIR = srcs/draw
 SRCS += $(addprefix $(DRAW_SRCDIR)/, $(DRAW_SRC))
+HANDLE_MLX_SRCDIR = srcs/handle_mlx
+SRCS += $(addprefix $(HANDLE_MLX_SRCDIR)/, $(HANDLE_MLX_SRC))
 
 OBJDIR = objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
@@ -49,6 +54,8 @@ PARSER_OBJDIR = objs/parser
 OBJS += $(addprefix $(PARSER_OBJDIR)/, $(PARSER_SRC:.c=.o))
 DRAW_OBJDIR = objs/draw
 OBJS += $(addprefix $(DRAW_OBJDIR)/, $(DRAW_SRC:.c=.o))
+HANDLE_MLX_OBJDIR = objs/handle_mlx
+OBJS += $(addprefix $(HANDLE_MLX_OBJDIR)/, $(HANDLE_MLX_SRC:.c=.o))
 
 CFLAGS = -Wall -Wextra -Werror -MP -MMD
 RM = rm -rf
@@ -81,7 +88,7 @@ $(NAME): $(OBJS)
 	@ echo "$(CHECK) $(BLUE)Compiling cub3D...$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR) $(DRAW_OBJDIR)
+	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR) $(DRAW_OBJDIR) $(HANDLE_MLX_OBJDIR)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
 
