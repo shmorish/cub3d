@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:41:29 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 01:57:46 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/09 20:40:00 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	print_color(t_parser *parser)
 {
 	printf("---------------------------\n");
 	printf("FILE: %s\n", __FILE__);
-	printf("floor_color:	%X\n", parser->floor_color);
-	printf("ceiling_color:	%X\n", parser->ceiling_color);
+	printf("floor_color:	%06X\n", parser->floor_color);
+	printf("ceiling_color:	%06X\n", parser->ceiling_color);
 }
 
 #else

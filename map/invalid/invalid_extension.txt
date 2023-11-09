@@ -1,7 +1,7 @@
-NO std_wall_n.xpm
-SO std_wall_n.xpm
-WE std_wall_n.xpm
-EA std_wall_n.xpm
+NO texture/turtule_north.xpm
+SO texture/penguin_south.xpm
+WE texture/orca_west.xpm
+EA texture/seahorse_east.xpm
 F 200,200,0
 C 225,30,0
 

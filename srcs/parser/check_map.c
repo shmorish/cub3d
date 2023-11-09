@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:48:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/30 20:49:42 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/09 22:40:09 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

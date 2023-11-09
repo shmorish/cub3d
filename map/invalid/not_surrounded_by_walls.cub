@@ -1,7 +1,7 @@
-NO std_wall_n.xpm
-SO std_wall_n.xpm
-WE std_wall_n.xpm
-EA std_wall_n.xpm
+NO texture/turtule_north.xpm
+SO texture/penguin_south.xpm
+WE texture/orca_west.xpm
+EA texture/seahorse_east.xpm
 F 128,128,128
 C 0,255,255
 
@@ -11,6 +11,7 @@ C 0,255,255
         1001000000000000000000001
 11111111101100000111000000N000001
 100000000011000001110111101111111
+
 11110111111111011100000010001
 11110111111111011101010010001
 11000000110101011100000010001
