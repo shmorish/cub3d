@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_player.c                                        :+:      :+:    :+:   */
+/*   ray.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 15:27:40 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 01:05:21 by morishitash      ###   ########.fr       */
+/*   Created: 2023/11/10 00:33:30 by morishitash       #+#    #+#             */
+/*   Updated: 2023/11/10 02:10:15 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parser.h"
+#ifndef RAY_H
+# define RAY_H
 
-bool	is_player(char c)
-{
-	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
-		return (true);
-	return (false);
-}
+# include "cub3d.h"
+
+typedef struct s_data		t_data;
+
+double	get_length_ray(t_data *data);
+double	get_ray_x(t_data *data);
+double	get_ray_y(t_data *data);
+
+#endif

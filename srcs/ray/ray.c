@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_player.c                                        :+:      :+:    :+:   */
+/*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 15:27:40 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 01:05:21 by morishitash      ###   ########.fr       */
+/*   Created: 2023/11/10 00:32:42 by morishitash       #+#    #+#             */
+/*   Updated: 2023/11/10 02:30:32 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/parser.h"
+#include "../includes/ray.h"
 
-bool	is_player(char c)
+double	get_length_ray(t_data *data)
 {
-	if (c == 'N' || c == 'S' || c == 'W' || c == 'E')
-		return (true);
-	return (false);
+	double	point_ray_from_x;
+	double	point_ray_from_y;
+	double	length_ray;
+
+	point_ray_from_x = get_ray_x(data);
+	point_ray_from_y = get_ray_y(data);
+	if (point_ray_from_x < point_ray_from_y)
+		length_ray = point_ray_from_x;
+	else
+		length_ray = point_ray_from_y;
+	printf("length_ray: %f\n", length_ray);
+	return (length_ray);
 }

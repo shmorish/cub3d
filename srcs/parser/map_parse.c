@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 03:04:39 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/09 23:44:34 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/10 00:53:31 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	**map_parse(char **map)
 		if (map[i][len - 1] == '\n')
 			len--;
 		tmp = ft_substr(map[i], 0, len);
+		if (tmp == NULL)
+			exit(err_msg(MALLOC_ERR));
 		free(map[i]);
 		map[i] = tmp;
 		i++;

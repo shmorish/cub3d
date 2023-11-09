@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 17:53:49 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/10 00:59:32 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		get_map_width(char **map);
 void	check_map(t_parser *parser);
 char	**map_copy(char	**map, int map_height);
 // check_player.c
-void	exist_player(char **map);
+void	exist_player(t_parser *parser);
 // check_map_closed.c
 void	is_map_closed(t_parser *parser, int check_x, int check_y, char **map);
 // get_start_point.c

@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:48:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/09 22:40:09 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/10 00:55:25 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	check_map(t_parser *parser)
 	char	**map_dup;
 
 	map_dup = map_copy(parser->map, parser->map_height);
-	exist_player(parser->map);
+	exist_player(parser);
 	is_map_closed(parser, parser->start_point_x,
 		parser->start_point_y, map_dup);
 	free_2d_array(map_dup);

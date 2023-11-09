@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 19:22:16 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/10 02:28:50 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(int argc, char **argv)
 	if (check_args(argc, argv) == INVALID)
 		return (1);
 	parser = init_parser(argv[1]);
-	data = init_data();
-	data->parser = parser;
+	data = init_data(parser);
 	draw_floor_sky(data);
+	get_length_ray(data);
 	mlx_hook(data->mlx_utils->win, 17, 0L, close_window_botton, data);
 	mlx_hook(data->mlx_utils->win, 2, 1L << 0, close_window_esc, data);
 	mlx_loop(data->mlx_utils->mlx);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 18:27:43 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/10 02:29:10 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # include "parser.h"
 # include "draw.h"
 # include "handle_mlx.h"
+# include "ray.h"
 
 // print colors
 # define RED "\033[0;31m"
@@ -69,14 +70,17 @@ typedef struct s_data
 {
 	t_mlx_utils	*mlx_utils;
 	t_parser	*parser;
+	double		player_pos_x;
+	double		player_pos_y;
+	double		player_dir;
 }	t_data;
 
 typedef enum e_direction
 {
 	UNKNOWN,
 	NORTH,
-	SOUTH,
 	WEST,
+	SOUTH,
 	EAST
 }	t_direction;
 
@@ -88,7 +92,7 @@ typedef struct s_parser
 	char		*south_texture;
 	char		*west_texture;
 	char		*east_texture;
-	char		*sprite_texture; // 未実装 -> なければbonusなし　-> あればbonus
+	char		*sprite_texture;
 
 	bool		is_bonus;
 
@@ -103,7 +107,7 @@ typedef struct s_parser
 	int			start_point_y;
 }	t_parser;
 
-t_data		*init_data(void);
+t_data		*init_data(t_parser *parser);
 void		free_data(t_data *data);
 t_parser	*init_parser(char *filename);
 
