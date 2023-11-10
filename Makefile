@@ -39,6 +39,7 @@ else
 endif
 
 DRAW_SRC = draw.c \
+				draw_wall.c \
 
 HANDLE_MLX_SRC = close.c \
 				pixel_put.c \

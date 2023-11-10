@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:03:47 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/08 16:40:12 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/10 10:29:37 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@
 typedef struct s_data		t_data;
 
 void	draw_floor_sky(t_data *data);
+void	draw_wall(t_data *data);
 
 #endif

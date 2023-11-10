@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 02:29:10 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/10 11:38:00 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,11 @@ typedef struct s_data
 	t_parser	*parser;
 	double		player_pos_x;
 	double		player_pos_y;
-	double		player_dir;
+	double		player_dir; // 正面方向の角度(ラジアン)
+	double		left_ray; // 左端方向の角度(ラジアン)
+	double		right_ray; // 右端方向の角度(ラジアン)
+	double		*length_ray; // 画面の横幅分のレイの長さ
+	int			*visual_height; // 描画する壁の高さ
 }	t_data;
 
 typedef enum e_direction
@@ -81,7 +85,7 @@ typedef enum e_direction
 	NORTH,
 	WEST,
 	SOUTH,
-	EAST
+	EAST,
 }	t_direction;
 
 typedef struct s_parser
