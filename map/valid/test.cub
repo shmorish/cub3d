@@ -1,7 +1,7 @@
-NO texture/turtule_north.xpm
-SO texture/penguin_south.xpm
-WE texture/orca_west.xpm
-EA texture/seahorse_east.xpm
+NO texture/turtle_north.png
+SO texture/penguin_south.png
+WE texture/orca_west.png
+EA texture/seahorse_east.png
 F 128,128,128
 C 0,255,255
 
