@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 12:43:46 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/10 23:30:40 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ t_data	*init_data(t_parser *parser)
 	data->right_ray = data->player_dir - M_PI_4;
 	data->player_pos_x = (double)parser->start_point_x + 0.5;
 	data->player_pos_y = (double)parser->start_point_y + 0.5;
-	data->length_ray = (double *)malloc_err(sizeof(double) * WINDOW_WIDTH + 1);
-	data->visual_height = (int *)malloc_err(sizeof(int) * WINDOW_WIDTH + 1);
+	data->length_ray = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
+	data->visual_height = (int *)malloc_err(sizeof(int) * (WINDOW_WIDTH + 1));
 	mlx_utils_init(data);
 	print_data_addr(data);
 	return (data);

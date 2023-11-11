@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 20:19:45 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/10 23:28:03 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	draw_wall(t_data *data)
 		data->length_ray[x] = get_length_ray(data, data->left_ray + (M_PI_2 * x / WINDOW_WIDTH));
 		// printf("x: %d length_ray: %f\n", x, data->length_ray[x]);
 		// data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 2));
-		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1/4));
+		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 4));
+
+		printf("x: %d visual_height: %d\n", x, data->visual_height[x]);
 		x++;
 	}
 	x = 0;

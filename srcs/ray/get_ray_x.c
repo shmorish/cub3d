@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 01:45:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 13:10:39 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/11 12:26:21 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static double	get_ray_x_left(t_data *data, double ray)
 			ray += 0.000001;
 		check_y = tan(ray) * (check_x - data->player_pos_x) \
 					+ data->player_pos_y;
-		if (check_y < 0 || check_y > data->parser->map_height || check_x < 0 || check_x > data->parser->map_width)
+		if (check_y < 0 || (int)check_y > data->parser->map_height + 1 || check_x < 1 || check_x > data->parser->map_width + 1)
 			return (__DBL_MAX__);
-		if (data->parser->map[(int)(check_y)][check_x] == '1')
+		if (data->parser->map[(int)(check_y)][check_x - 1] == '1')
 		{
 			length_ray = sqrt(pow(check_x - data->player_pos_x, 2) \
 							+ pow(check_y - data->player_pos_y, 2));
@@ -56,7 +56,6 @@ static double	get_ray_x_right(t_data *data, double ray)
 			return (__DBL_MAX__);
 		if (data->parser->map[(int)(check_y)][check_x] == '1')
 		{
-			printf("check_x: %d check_y: %d\n", check_x, (int)(check_y - 0.5));
 			length_ray = sqrt(pow(check_x - data->player_pos_x, 2) \
 							+ pow(check_y - data->player_pos_y, 2));
 			return (length_ray);
