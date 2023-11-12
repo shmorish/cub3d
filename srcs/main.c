@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 10:28:51 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/12 18:46:48 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ int	main(int argc, char **argv)
 	data = init_data(parser);
 	draw_floor_sky(data);
 	draw_wall(data);
-	mlx_hook(data->mlx_utils->win, 17, 0L, close_window_botton, data);
-	mlx_hook(data->mlx_utils->win, 2, 1L << 0, close_window_esc, data);
-	mlx_loop(data->mlx_utils->mlx);
+	game_in_progress(data);
 	free_parser(parser);
 	data->parser = NULL;
 	free_data(data);

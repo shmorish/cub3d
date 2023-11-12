@@ -49,6 +49,8 @@ RAY_SRC = ray.c \
 			get_ray_x.c \
 			get_ray_y.c \
 
+PLAYER_SRC = move.c
+
 SRCDIR = srcs
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
 CHECK_ARG_SRCDIR = srcs/check_arg
@@ -61,6 +63,8 @@ HANDLE_MLX_SRCDIR = srcs/handle_mlx
 SRCS += $(addprefix $(HANDLE_MLX_SRCDIR)/, $(HANDLE_MLX_SRC))
 RAY_SRCDIR = srcs/ray
 SRCS += $(addprefix $(RAY_SRCDIR)/, $(RAY_SRC))
+PLAYER_SRCDIR = srcs/player
+SRCS += $(addprefix $(PLAYRT_SRCDIR)/, $(PLAYER_SRC))
 
 OBJDIR = objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
@@ -74,6 +78,8 @@ HANDLE_MLX_OBJDIR = objs/handle_mlx
 OBJS += $(addprefix $(HANDLE_MLX_OBJDIR)/, $(HANDLE_MLX_SRC:.c=.o))
 RAY_OBJDIR = objs/ray
 OBJS += $(addprefix $(RAY_OBJDIR)/, $(RAY_SRC:.c=.o))
+PLAYER_OBJDIR = objs/player
+OBJS += $(addprefix $(PLAYER_OBJDIR)/, $(PLAYER_SRC:.c=.o))
 
 CFLAGS = -Wall -Wextra -Werror -MP -MMD
 RM = rm -rf
@@ -108,7 +114,7 @@ $(NAME): $(OBJS)
 	@ echo "$(CHECK) $(BLUE)Compiling cub3D...$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR) $(DRAW_OBJDIR) $(HANDLE_MLX_OBJDIR) $(RAY_OBJDIR)
+	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR) $(DRAW_OBJDIR) $(HANDLE_MLX_OBJDIR) $(RAY_OBJDIR) $(PLAYER_OBJDIR)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
 

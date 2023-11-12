@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 16:32:33 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/12 18:58:28 by hhino            ###   ########.fr       */
+/*   Created: 2023/11/12 17:45:54 by hhino             #+#    #+#             */
+/*   Updated: 2023/11/12 18:58:17 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/handle_mlx.h"
+#ifndef PLAYER_H
+# define PLAYER_H
 
-int	close_window_esc(int keycode, t_data *data)
-{
-	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
-		exit (0);
-	}
-	return (0);
-}
+# include "cub3d.h"
 
-int	close_window_botton(t_data *data)
-{
-	mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
-	exit(0);
-	return (0);
-}
+# define KEY_PRESS 2
+# define KEY_LEFT_ARROW 123
+# define KEY_RIGHT_ARROW 124
+# define KEY_DOWN_ARROW 125
+# define KEY_UP_ARROW 126
+# define KEY_ESC 53
+
+void	game_in_progress(t_data *data);
+
+#endif
