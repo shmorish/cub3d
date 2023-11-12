@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/13 01:02:30 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/13 01:46:07 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,7 @@ void	draw_wall(t_data *data)
 	while (x <= WINDOW_WIDTH)
 	{
 		data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
-		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 4));
-
-		// printf("x: %d visual_height: %d\n", x, data->visual_height[x]);
+		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 2));
 		x++;
 	}
 	x = 0;
@@ -66,7 +64,6 @@ void	draw_wall(t_data *data)
 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y \
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
 				my_mlx_pixel_put(data, x, y, color);
-			// my_mlx_pixel_put(data, x, y, color);
 			y++;
 		}
 		x++;

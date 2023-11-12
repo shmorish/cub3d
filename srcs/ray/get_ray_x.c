@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 01:45:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/13 01:02:41 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/13 01:43:59 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ static double	get_ray_x_left(t_data *data, double ray)
 
 	length_ray = __DBL_MAX__;
 	check_x = (int)(data->player_pos_x);
-	// if (i < 200)
-	// 	printf("--------------\n");
 	while (1)
 	{
 		if (ray == M_PI_2 || ray == M_PI_2 * 3)
@@ -31,8 +29,7 @@ static double	get_ray_x_left(t_data *data, double ray)
 		check_y = tan(ray) * (check_x - data->player_pos_x) \
 					+ data->player_pos_y;
 		// if (i++ < 200)
-		// 	printf("check_y %d, data->parser->map_height %d, check_x %d, data->parser->map_width %d data->parser->map[%d][%d]\n", (int)check_y, data->parser->map_height, check_x, data->parser->map_width, (int)(check_y - 1), check_x);
-		if (check_y < 0 || (int)check_y > data->parser->map_height || check_x < 1 || check_x > data->parser->map_width)
+		if (check_y < 0 || check_y > data->parser->map_height || check_x < 1 || check_x > data->parser->map_width)
 			return (__DBL_MAX__);
 		// printf("ray %d° check_y %d, map_height %d, check_x %d, map_width %d map[%d][%d]\n", \
 		// 	(int)(ray * 180 * M_1_PI), (int)check_y, data->parser->map_height, check_x, data->parser->map_width, (int)(check_y), check_x);
