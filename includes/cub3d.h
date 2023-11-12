@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 19:21:08 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/12 18:15:58 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include "draw.h"
 # include "handle_mlx.h"
 # include "ray.h"
+# include "player.h"
 
 // print colors
 # define RED "\033[0;31m"
@@ -54,6 +55,7 @@
 typedef struct s_mlx_utils	t_mlx_utils;
 typedef struct s_data		t_data;
 typedef struct s_parser		t_parser;
+typedef struct s_texture	t_texture;
 
 typedef struct s_mlx_utils
 {
@@ -70,6 +72,7 @@ typedef struct s_data
 {
 	t_mlx_utils	*mlx_utils;
 	t_parser	*parser;
+	t_texture	*texture;
 	double		player_pos_x;
 	double		player_pos_y;
 	double		player_dir; // 正面方向の角度(ラジアン)
@@ -110,6 +113,16 @@ typedef struct s_parser
 	int			start_point_x;
 	int			start_point_y;
 }	t_parser;
+
+typedef struct s_texture
+{
+	void	*south_wall;
+	void	*north_wall;
+	void	*west_wall;
+	void	*east_wall;
+	int		img_width;
+	int		img_height;
+}	t_texture;
 
 t_data		*init_data(t_parser *parser);
 void		free_data(t_data *data);
