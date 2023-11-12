@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:19:37 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 19:18:22 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/13 02:36:48 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	mlx_utils_init(t_data *data)
 		&data->mlx_utils->endian);
 	if (data->mlx_utils->mlx == NULL || data->mlx_utils->win == NULL)
 		exit(err_msg(MALLOC_ERR));
+	mlx_mouse_hide();
 	print_mlx_utils_addr(data);
 }
 

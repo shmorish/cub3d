@@ -113,10 +113,9 @@ clean :
 	@ echo "$(REMOVE) $(BLUE)Remove cub3D object files. $(RESET)"
 
 fclean :
-	@ $(RM) $(OBJDIR) $(NAME)
 	@ $(MAKE) -C ./libft fclean
 	@ $(MAKE) -C ./mlx fclean
-	@ $(RM) $(NAME)
+	@ $(RM) $(OBJDIR) $(NAME)
 	@ echo "$(REMOVE) $(BLUE)Remove cub3D object files and $(NAME). $(RESET)"
 
 re : fclean all

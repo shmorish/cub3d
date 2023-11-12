@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/13 01:32:16 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/13 02:42:20 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,5 @@ void	game_in_progress(t_data *data)
 	mlx_hook(data->mlx_utils->win, KEY_PRESS, 1L << 0, move_player, data);
 	mlx_hook(data->mlx_utils->win, 17, 0L, close_window_botton, data);
 	mlx_loop(data->mlx_utils->mlx);
+	mlx_mouse_show();
 }
