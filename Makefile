@@ -53,33 +53,18 @@ PLAYER_SRC = move.c
 
 SRCDIR = srcs
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
-CHECK_ARG_SRCDIR = srcs/check_arg
-SRCS += $(addprefix $(CHECK_ARG_SRCDIR)/, $(CHECK_ARG_SRC))
-PARSER_SRCDIR = srcs/parser
-SRCS += $(addprefix $(PARSER_SRCDIR)/, $(PARSER_SRC))
-DRAW_SRCDIR = srcs/draw
-SRCS += $(addprefix $(DRAW_SRCDIR)/, $(DRAW_SRC))
-HANDLE_MLX_SRCDIR = srcs/handle_mlx
-SRCS += $(addprefix $(HANDLE_MLX_SRCDIR)/, $(HANDLE_MLX_SRC))
-RAY_SRCDIR = srcs/ray
-SRCS += $(addprefix $(RAY_SRCDIR)/, $(RAY_SRC))
-PLAYER_SRCDIR = srcs/player
-SRCS += $(addprefix $(PLAYRT_SRCDIR)/, $(PLAYER_SRC))
+SRCS += $(addprefix $(SRCDIR)/check_arg/, $(CHECK_ARG_SRC))
+SRCS += $(addprefix $(SRCDIR)/parser/, $(PARSER_SRC))
+SRCS += $(addprefix $(SRCDIR)/draw/, $(DRAW_SRC))
+SRCS += $(addprefix $(SRCDIR)/handle_mlx/, $(HANDLE_MLX_SRC))
+SRCS += $(addprefix $(SRCDIR)/ray/, $(RAY_SRC))
+SRCS += $(addprefix $(SRCDIR)/player/, $(PLAYER_SRC))
+MAKE_DIR = check_arg parser draw handle_mlx ray player
 
 OBJDIR = objs
-OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
-CHECK_ARG_OBJDIR = objs/check_arg
-OBJS += $(addprefix $(CHECK_ARG_OBJDIR)/, $(CHECK_ARG_SRC:.c=.o))
-PARSER_OBJDIR = objs/parser
-OBJS += $(addprefix $(PARSER_OBJDIR)/, $(PARSER_SRC:.c=.o))
-DRAW_OBJDIR = objs/draw
-OBJS += $(addprefix $(DRAW_OBJDIR)/, $(DRAW_SRC:.c=.o))
-HANDLE_MLX_OBJDIR = objs/handle_mlx
-OBJS += $(addprefix $(HANDLE_MLX_OBJDIR)/, $(HANDLE_MLX_SRC:.c=.o))
-RAY_OBJDIR = objs/ray
-OBJS += $(addprefix $(RAY_OBJDIR)/, $(RAY_SRC:.c=.o))
-PLAYER_OBJDIR = objs/player
-OBJS += $(addprefix $(PLAYER_OBJDIR)/, $(PLAYER_SRC:.c=.o))
+OBJS = $(subst $(SRCDIR), $(OBJDIR), $(SRCS:.c=.o))
+DEPS = $(OBJS:.o=.d)
+MAKE_DIRS = $(addprefix $(OBJDIR)/, $(MAKE_DIR))
 
 CFLAGS = -Wall -Wextra -Werror -MP -MMD
 RM = rm -rf
@@ -114,9 +99,12 @@ $(NAME): $(OBJS)
 	@ echo "$(CHECK) $(BLUE)Compiling cub3D...$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR) $(DRAW_OBJDIR) $(HANDLE_MLX_OBJDIR) $(RAY_OBJDIR) $(PLAYER_OBJDIR)
+	@ mkdir -p $(MAKE_DIRS)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+
+$(DEP_DIR)/%.d: $(SRCDIR)/%.c
+	$(CC) $(CFLAGS) -M $< -MF $@ $(INC)
 
 clean :
 	@ $(MAKE) -C ./libft clean
@@ -149,3 +137,5 @@ norm :
 bonus : all
 
 .PHONY : all clean fclean re bonus debug_bonus debug norm address tester
+
+-include $(DEPS)
