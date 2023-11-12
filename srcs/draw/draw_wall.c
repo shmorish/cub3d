@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/12 20:21:22 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/13 01:02:30 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	draw_wall(t_data *data)
 
 	x = 0;
 	printf("x -> %f y ->%f\n", data->player_pos_x, data->player_pos_y);
+	data->left_ray = data->player_dir + M_PI_4;
+	data->right_ray = data->player_dir - M_PI_4;
 	while (x <= WINDOW_WIDTH)
 	{
 		data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));

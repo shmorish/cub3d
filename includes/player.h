@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:54 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/12 18:58:17 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/13 00:23:46 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # define KEY_DOWN_ARROW 125
 # define KEY_UP_ARROW 126
 # define KEY_ESC 53
+
+# define MOVE_SPEED 0.2
+# define KEY_A 0
+# define KEY_D 2
 
 void	game_in_progress(t_data *data);
 

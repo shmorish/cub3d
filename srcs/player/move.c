@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/12 19:07:20 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/13 01:07:44 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,36 @@ int	move_player(int keycode, t_data *data)
 	printf("MOVE\n");
 	if (keycode == KEY_UP_ARROW)
 	{
-		data->player_pos_y -= 0.2;
+		data->player_pos_x += cos(data->player_dir) * MOVE_SPEED;
+		data->player_pos_y += sin(data->player_dir) * MOVE_SPEED;
 		re_draw(data);
 	}
 	else if (keycode == KEY_DOWN_ARROW)
 	{
-		data->player_pos_y += 0.2;
+		data->player_pos_x -= cos(data->player_dir) * MOVE_SPEED;
+		data->player_pos_y -= sin(data->player_dir) * MOVE_SPEED;
 		re_draw(data);
 	}
 	else if (keycode == KEY_RIGHT_ARROW)
 	{
-		data->player_pos_x += 0.2;
+		data->player_pos_x -= sin(data->player_dir) * MOVE_SPEED;
+		data->player_pos_y += cos(data->player_dir) * MOVE_SPEED;
 		re_draw(data);
 	}
 	else if (keycode == KEY_LEFT_ARROW)
 	{
-		data->player_pos_x -= 0.2;
+		data->player_pos_x += sin(data->player_dir) * MOVE_SPEED;
+		data->player_pos_y -= cos(data->player_dir) * MOVE_SPEED;
+		re_draw(data);
+	}
+	else if (keycode == KEY_D)
+	{
+		data->player_dir += 0.2;
+		re_draw(data);
+	}
+	else if (keycode == KEY_A)
+	{
+		data->player_dir -= 0.2;
 		re_draw(data);
 	}
 	else if (keycode == KEY_ESC)
