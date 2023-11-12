@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 00:32:42 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 13:03:23 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/12 18:33:45 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,13 @@ double	get_length_ray(t_data *data, double ray)
 		ray += 2 * M_PI;
 	while (ray > 2 * M_PI)
 		ray -= 2 * M_PI;
+	// printf("%d", (int)(ray * 180 * M_1_PI));
 	point_ray_from_x = get_ray_x(data, ray);
 	point_ray_from_y = get_ray_y(data, ray);
+	// if (point_ray_from_x == __DBL_MAX__)
+		// printf("x : max		y : %03f\n", point_ray_from_y);
+	// else
+		// printf("x : %03f	y : %03f\n", point_ray_from_x, point_ray_from_y);
 	if (point_ray_from_x < point_ray_from_y)
 	{
 		// printf("point_ray_from_x: %f\n", point_ray_from_x);

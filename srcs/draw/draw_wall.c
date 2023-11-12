@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 23:28:03 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/12 20:15:15 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,10 @@ void	draw_wall(t_data *data)
 	x = 0;
 	while (x <= WINDOW_WIDTH)
 	{
-		data->length_ray[x] = get_length_ray(data, data->left_ray + (M_PI_2 * x / WINDOW_WIDTH));
-		// printf("x: %d length_ray: %f\n", x, data->length_ray[x]);
-		// data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 2));
+		data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
 		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 4));
 
-		printf("x: %d visual_height: %d\n", x, data->visual_height[x]);
+		// printf("x: %d visual_height: %d\n", x, data->visual_height[x]);
 		x++;
 	}
 	x = 0;

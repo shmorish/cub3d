@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:48:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 00:55:25 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/12 17:18:57 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**map_copy(char	**map, int map_height)
 	int		i;
 
 	i = 0;
-	map_dup = (char **)malloc_err(sizeof(char *) * (map_height + 1));
+	map_dup = (char **)malloc_err(sizeof(char *) * (map_height + 2));
 	while (map[i] != NULL)
 	{
 		map_dup[i] = ft_strdup(map[i]);

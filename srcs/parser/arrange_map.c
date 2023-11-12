@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arrange_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:43:41 by shmorish          #+#    #+#             */
-/*   Updated: 2023/11/09 23:43:11 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/12 17:18:33 by shmorish         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	arrange_map(t_parser *parser)
 		len = ft_strlen(map_dup[i]);
 		if (len != parser->map_width)
 		{
-			tmp = (char *)malloc((sizeof(char)) * parser->map_width + 1);
+			tmp = (char *)malloc((sizeof(char)) * (parser->map_width + 1));
 			ft_memcpy(tmp, map_dup[i], len);
 			while (len < parser->map_width)
 				tmp[len++] = ' ';
