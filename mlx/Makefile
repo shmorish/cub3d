@@ -23,7 +23,7 @@ all: $(NOM)
 $(NOM):	$(OBJ)
 	@ ar rc $(NOM) $(OBJ)
 	@ ranlib $(NOM)
-	@echo "$(CHECK) $(BLUE)Compiling minilbx...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling minilbx...%-50.50s\n$(RESET)"
 
 %.o: %.c
 	@ cc -c $< -o $@ $(CFLAGS)

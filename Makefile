@@ -96,15 +96,12 @@ $(NAME): $(OBJS)
 	@ $(MAKE) -C ./libft
 	@ $(MAKE) -C ./mlx
 	@ $(CC) $(CFLAGS) -o $@ $^ $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit
-	@ echo "$(CHECK) $(BLUE)Compiling cub3D...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling cub3D...%-50.50s\n$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@ mkdir -p $(MAKE_DIRS)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
 	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
-
-$(DEP_DIR)/%.d: $(SRCDIR)/%.c
-	$(CC) $(CFLAGS) -M $< -MF $@ $(INC)
 
 clean :
 	@ $(MAKE) -C ./libft clean

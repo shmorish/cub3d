@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ ar rc $(NAME) $(OBJS)
-	@echo "$(CHECK) $(BLUE)Compiling ft_printf...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling ft_printf...%-50.50s\n$(RESET)"
 
 
 # for Mac

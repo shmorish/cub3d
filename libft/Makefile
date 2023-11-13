@@ -102,7 +102,7 @@ $(NAME): $(OBJS)
 	@ make -C $(PRINTF_PATH)
 	@ mv $(PRINTF_PATH)/$(PRINTF) ./$(NAME)
 	@ ar rc $(NAME) $(OBJS)
-	@echo "$(CHECK) $(BLUE)Compiling libft...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling libft...%-50.50s\n$(RESET)"
 
 # for Mac
 .c.o: $(OBJS)
