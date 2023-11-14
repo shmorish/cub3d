@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/13 10:46:48 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/14 01:06:55 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,23 @@ int	move_player(int keycode, t_data *data)
 	return (0);
 }
 
+int	mouse_move(int x, int y, t_data *data)
+{
+	(void)y;
+	// printf("mouse x -> %d y -> %d\n", x, y);
+	if (x < WINDOW_WIDTH / 2)
+		data->player_dir -= 0.1;
+	else if (x > WINDOW_WIDTH / 2)
+		data->player_dir += 0.1;
+	re_draw(data);
+	return (0);
+}
+
 void	game_in_progress(t_data *data)
 {
 	mlx_hook(data->mlx_utils->win, KEY_PRESS, 1L << 0, move_player, data);
 	mlx_hook(data->mlx_utils->win, 17, 0L, close_window_botton, data);
+	mlx_mouse_hook(data->mlx_utils->win, mouse_move, data);
 	mlx_loop(data->mlx_utils->mlx);
-	mlx_mouse_show();
+	// mlx_mouse_show();
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arrange_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:43:41 by shmorish          #+#    #+#             */
-/*   Updated: 2023/11/12 17:18:33 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:08:16 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

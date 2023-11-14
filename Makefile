@@ -62,9 +62,11 @@ SRCS += $(addprefix $(SRCDIR)/player/, $(PLAYER_SRC))
 MAKE_DIR = check_arg parser draw handle_mlx ray player
 
 OBJDIR = objs
+DEPDIR = deps
 OBJS = $(subst $(SRCDIR), $(OBJDIR), $(SRCS:.c=.o))
-DEPS = $(OBJS:.o=.d)
+DEPS = $(subst $(OBJDIR), $(DEPDIR), $(OBJS:.o=.d))
 MAKE_DIRS = $(addprefix $(OBJDIR)/, $(MAKE_DIR))
+MAKE_DIRS += $(addprefix $(DEPDIR)/, $(MAKE_DIR))
 
 CFLAGS = -Wall -Wextra -Werror -MP -MMD
 RM = rm -rf
@@ -90,6 +92,14 @@ BLUE		= \033[1;34m
 YELLOW		= \033[1;33m
 RESET		= \033[0m
 
+FILE = 1
+MAX_FILES = $(words $(SRCS))
+
+# この辺使いたい
+# BAR="$(yes . | head -n ${I} | tr -d '\n')"
+# printf "\r[%3d/100] %s" $((I * 10)) ${BAR}
+
+
 all : $(NAME)
 
 $(NAME): $(OBJS)
@@ -101,7 +111,11 @@ $(NAME): $(OBJS)
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@ mkdir -p $(MAKE_DIRS)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+	@ printf "$(FILE)/$(MAX_FILES)	$(GENERATE) $(YELLOW)Generating $@... %-50.50s$(RESET)\r"
+	@ $(eval FILE=$(shell echo $$(($(FILE)+1))))
+	@ if [ $(FILE) -eq $(MAX_FILES) ]; then \
+		printf "Done!	$(GENERATE) $(YELLOW)Finish Generating CUB3D Object files !%-50.50s\n$(RESET)"; \
+	fi
 
 clean :
 	@ $(MAKE) -C ./libft clean
