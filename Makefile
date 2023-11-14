@@ -49,7 +49,8 @@ RAY_SRC = ray.c \
 			get_ray_x.c \
 			get_ray_y.c \
 
-PLAYER_SRC = move.c
+PLAYER_SRC = move.c \
+				wall_judge.c
 
 SRCDIR = srcs
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
