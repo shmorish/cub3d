@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 00:32:42 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/12 21:51:10 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:58:06 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,17 @@ double	get_length_ray(t_data *data, double ray)
 	if (point_ray_from_x < point_ray_from_y)
 	{
 		// printf("point_ray_from_x: %f\n", point_ray_from_x);
+		// 魚眼レンズ
 		length_ray = point_ray_from_x;
+		// 魚眼レンズは直したけど、ある方向を向いたらSEGVが出る
+		// length_ray = point_ray_from_x * cos(ray - data->player_dir);
 	}
 	else
 	{
 		// printf("point_ray_from_y: %f\n", point_ray_from_y);
+		// 上記同様。
 		length_ray = point_ray_from_y;
+		// length_ray = point_ray_from_y * cos(ray - data->player_dir);
 	}
 	return (length_ray);
 }

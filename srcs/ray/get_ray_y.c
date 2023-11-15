@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_ray_y.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 01:59:57 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/12 21:39:03 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/14 20:04:03 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static double	get_ray_y_down(t_data *data, double ray)
 					+ data->player_pos_x;
 		if (check_y < 0 || check_y > data->parser->map_height + 1 || check_x < 0 || check_x > data->parser->map_width + 1)
 			return (__DBL_MAX__);
-		// printf("ray %d° check_y %d, map_height %d, check_x %d, map_width %d map[%d][%d]\n", \
-		// 	(int)(ray * 180 * M_1_PI), (int)check_y, data->parser->map_height, check_x, data->parser->map_width, (int)(check_y), check_x);
+		printf("ray %d° check_y %d, map_height %d, check_x %d, map_width %d map[%d][%d]\n", \
+			(int)(ray * 180 * M_1_PI), (int)check_y, data->parser->map_height, (int)check_x, data->parser->map_width, (int)(check_y), (int)check_x);
 		if (data->parser->map[check_y][(int)(check_x)] == '1')
 		{
 			// printf("check_y_down	[%d][%d] ->  %c\n",check_y, (int)(check_x), data->parser->map[check_y][(int)(check_x)]);
