@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/15 17:13:23 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/15 18:01:23 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	re_draw(t_data *data)
 		&data->mlx_utils->endian);
 	draw_floor_sky(data);
 	draw_wall(data);
+	draw_minimap(data);
 }
 
 static void	movement(int keycode, t_data *data)
@@ -80,7 +81,7 @@ void	game_in_progress(t_data *data)
 {
 	mlx_hook(data->mlx_utils->win, KEY_PRESS, 1L << 0, move_player, data);
 	mlx_hook(data->mlx_utils->win, 17, 0L, close_window_botton, data);
-	mlx_hook(data->mlx_utils->win, 6, 1L << 6, mouse_move, data);
+	// mlx_hook(data->mlx_utils->win, 6, 1L << 6, mouse_move, data);
 	mlx_loop(data->mlx_utils->mlx);
 	// mlx_mouse_show();
 }
