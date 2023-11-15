@@ -40,6 +40,7 @@ endif
 
 DRAW_SRC = draw.c \
 				draw_wall.c \
+				draw_minimap.c \
 
 HANDLE_MLX_SRC = close.c \
 				pixel_put.c \

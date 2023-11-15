@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:32:33 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/12 18:58:28 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/15 17:02:31 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 int	close_window_esc(int keycode, t_data *data)
 {
-	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
-		exit (0);
-	}
+	(void)keycode;
+	mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
+	exit (0);
 	return (0);
 }
 

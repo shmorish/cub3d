@@ -6,13 +6,11 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:06:57 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/08 19:45:09 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/15 17:02:43 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/draw.h"
-
-
 
 void	draw_floor_sky(t_data *data)
 {

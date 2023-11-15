@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/14 14:27:22 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/15 17:07:57 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	game_in_progress(t_data *data)
 	mlx_hook(data->mlx_utils->win, KEY_PRESS, 1L << 0, move_player, data);
 	mlx_hook(data->mlx_utils->win, 17, 0L, close_window_botton, data);
 	mlx_mouse_hook(data->mlx_utils->win, mouse_move, data);
+	draw_minimap(data);
 	mlx_loop(data->mlx_utils->mlx);
 	// mlx_mouse_show();
 }
