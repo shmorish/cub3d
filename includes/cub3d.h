@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/13 21:19:06 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/16 20:00:18 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,8 @@ typedef struct s_texture
 	void	*north_wall;
 	void	*west_wall;
 	void	*east_wall;
-	int		img_width;
-	int		img_height;
+	int		img_w;
+	int		img_h;
 }	t_texture;
 
 t_data		*init_data(t_parser *parser);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/14 00:59:01 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/16 20:22:27 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,26 @@ void	put_file_to_image(t_data *data)
 {
 	data->texture = (t_texture *)malloc(sizeof(t_texture));
 	data->texture->west_wall = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		"textures/orca_west.xpm", &data->texture->img_width, &data->texture->img_height);
+		data->parser->west_texture, &data->texture->img_w, &data->texture->img_h);
 	data->texture->east_wall = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		"textures/seahorse_east.xpm", &data->texture->img_width, &data->texture->img_height);
-	data->texture->west_wall = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		"textures/penguin_south.xpm", &data->texture->img_width, &data->texture->img_height);
-	data->texture->west_wall = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		"textures/turtle_north.xpm", &data->texture->img_width, &data->texture->img_height);
+		data->parser->east_texture, &data->texture->img_w, &data->texture->img_h);
+	data->texture->south_wall = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
+		data->parser->south_texture, &data->texture->img_w, &data->texture->img_h);
+	data->texture->north_wall = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
+		data->parser->north_texture, &data->texture->img_w, &data->texture->img_h);
 }
 
 void	wall_image_to_window(t_data *data, int w, int h)
 {
+	put_file_to_image(data);
 	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->west_wall, w * 10, h * 10);
-	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->east_wall, w * 10, h * 10);
-	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->south_wall, w * 10, h * 10);
-	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->north_wall, w * 10, h * 10);
+		data->texture->west_wall, w * 480, h * 480);
+	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+	// 	data->texture->east_wall, w * 480, h * 480);
+	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+	// 	data->texture->south_wall, w * 480, h * 480);
+	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+	// 	data->texture->north_wall, w * 480, h * 480);
 }
 
 void	draw_wall(t_data *data)

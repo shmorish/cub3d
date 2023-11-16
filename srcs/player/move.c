@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/15 18:01:23 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/16 20:22:01 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	re_draw(t_data *data)
 	draw_floor_sky(data);
 	draw_wall(data);
 	draw_minimap(data);
+	wall_image_to_window(data, 0, 0);
 }
 
 static void	movement(int keycode, t_data *data)
@@ -48,9 +49,9 @@ static void	movement(int keycode, t_data *data)
 			-cos(data->player_dir) * MOVE_SPEED);
 	}
 	else if (keycode == KEY_D)
-		data->player_dir += 0.2;
+		data->player_dir += M_PI_4 / 2;
 	else if (keycode == KEY_A)
-		data->player_dir -= 0.2;
+		data->player_dir -= M_PI_4 / 2;
 	re_draw(data);
 }
 
