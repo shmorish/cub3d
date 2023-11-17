@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_utils_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:19:37 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/14 14:27:15 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/17 19:41:12 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	mlx_utils_init(t_data *data)
 	data->mlx_utils->img = mlx_new_image(data->mlx_utils->mlx, \
 			WINDOW_WIDTH, WINDOW_HEIGHT);
 	data->mlx_utils->addr = mlx_get_data_addr(data->mlx_utils->img, \
-		&data->mlx_utils->bits_per_pixel, &data->mlx_utils->line_length, \
+		&data->mlx_utils->bpp, &data->mlx_utils->line_length, \
 		&data->mlx_utils->endian);
 	if (data->mlx_utils->mlx == NULL || data->mlx_utils->win == NULL)
 		exit(err_msg(MALLOC_ERR));

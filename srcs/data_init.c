@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/12 20:53:15 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/17 19:50:32 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ t_data	*init_data(t_parser *parser)
 	data->player_pos_y = (double)parser->start_point_y + 0.5;
 	data->length_ray = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
 	data->visual_height = (int *)malloc_err(sizeof(int) * (WINDOW_WIDTH + 1));
+	data->texture = (t_texture *)malloc_err(sizeof(t_texture));
+	data->texture->south = (t_wall *)malloc_err(sizeof(t_wall));
+	data->texture->north = (t_wall *)malloc_err(sizeof(t_wall));
+	data->texture->west = (t_wall *)malloc_err(sizeof(t_wall));
+	data->texture->east = (t_wall *)malloc_err(sizeof(t_wall));
 	mlx_utils_init(data);
 	print_data_addr(data);
 	return (data);

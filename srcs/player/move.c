@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/16 22:15:11 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/17 19:52:10 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/player.h"
-
-void	re_draw(t_data *data)
-{
-	mlx_destroy_image(data->mlx_utils->mlx, data->mlx_utils->img);
-	data->mlx_utils->img = \
-		mlx_new_image(data->mlx_utils->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	data->mlx_utils->addr = mlx_get_data_addr(data->mlx_utils->img, \
-		&data->mlx_utils->bits_per_pixel, &data->mlx_utils->line_length, \
-		&data->mlx_utils->endian);
-	draw_floor_sky(data);
-	draw_wall(data);
-	draw_minimap(data);
-	// wall_image_to_window(data, 0, 0);
-}
 
 static void	movement(int keycode, t_data *data)
 {

@@ -6,11 +6,25 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:06:57 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/15 17:02:43 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/17 19:52:19 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/draw.h"
+
+void	re_draw(t_data *data)
+{
+	mlx_destroy_image(data->mlx_utils->mlx, data->mlx_utils->img);
+	data->mlx_utils->img = \
+		mlx_new_image(data->mlx_utils->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+	data->mlx_utils->addr = mlx_get_data_addr(data->mlx_utils->img, \
+		&data->mlx_utils->bpp, &data->mlx_utils->line_length, \
+		&data->mlx_utils->endian);
+	draw_floor_sky(data);
+	draw_wall(data);
+	draw_minimap(data);
+	// wall_image_to_window(data, 0, 0);
+}
 
 void	draw_floor_sky(t_data *data)
 {

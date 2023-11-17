@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/16 20:00:18 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/17 19:41:08 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_mlx_utils	t_mlx_utils;
 typedef struct s_data		t_data;
 typedef struct s_parser		t_parser;
 typedef struct s_texture	t_texture;
+typedef struct s_wall		t_wall;
 
 typedef struct s_mlx_utils
 {
@@ -63,7 +64,7 @@ typedef struct s_mlx_utils
 	void	*win;
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
+	int		bpp;
 	int		line_length;
 	int		endian;
 }	t_mlx_utils;
@@ -116,13 +117,22 @@ typedef struct s_parser
 
 typedef struct s_texture
 {
-	void	*south_wall;
-	void	*north_wall;
-	void	*west_wall;
-	void	*east_wall;
+	t_wall	*south;
+	t_wall	*north;
+	t_wall	*west;
+	t_wall	*east;
 	int		img_w;
 	int		img_h;
 }	t_texture;
+
+typedef struct s_wall
+{
+	void	*wall_img;
+	char	*addr;
+	int		bpp;
+	int		line_length;
+	int		endian;
+}	t_wall;
 
 t_data		*init_data(t_parser *parser);
 void		free_data(t_data *data);
