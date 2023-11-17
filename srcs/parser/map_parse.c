@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 03:04:39 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 03:11:24 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/10 00:53:31 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,19 @@ char	**map_parse(char **map)
 {
 	int		i;
 	char	*tmp;
+	int		len;
 
 	i = 0;
 	if (map == NULL)
 		exit(err_msg(NO_MAP_ERR));
 	while (map[i] != NULL)
 	{
-		tmp = ft_substr(map[i], 0, ft_strlen(map[i]) - 1);
+		len = ft_strlen(map[i]);
+		if (map[i][len - 1] == '\n')
+			len--;
+		tmp = ft_substr(map[i], 0, len);
+		if (tmp == NULL)
+			exit(err_msg(MALLOC_ERR));
 		free(map[i]);
 		map[i] = tmp;
 		i++;

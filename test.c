@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 16:32:33 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/15 17:02:31 by hhino            ###   ########.fr       */
+/*   Created: 2023/11/16 19:35:10 by hhino             #+#    #+#             */
+/*   Updated: 2023/11/16 20:01:41 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/handle_mlx.h"
+#include "mlx/mlx.h"
+#include <stdio.h>
 
-int	close_window_esc(int keycode, t_data *data)
+int	main()
 {
-	(void)keycode;
-	mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
-	exit (0);
-	return (0);
-}
+	void	*mlx;
+	void	*win;
+	void	*img;
+	int		img_w;
+	int		img_h;
 
-int	close_window_botton(t_data *data)
-{
-	mlx_destroy_window(data->mlx_utils->mlx, data->mlx_utils->win);
-	exit(0);
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, 1000, 1000, "test");
+	img = mlx_xpm_file_to_image(mlx, "./texture/orca_west.xpm", &img_w, &img_h);
+	printf("img:%p\n", img);
+	printf("width:%d\n", img_w);
+	printf("heigh:%d\n", img_h);
+	mlx_put_image_to_window(mlx, win, img, 0, 0);
+	mlx_loop(mlx);
 	return (0);
 }

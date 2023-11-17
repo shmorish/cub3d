@@ -39,35 +39,36 @@ else
 endif
 
 DRAW_SRC = draw.c \
+				draw_wall.c \
+				draw_minimap.c \
 
 HANDLE_MLX_SRC = close.c \
 				pixel_put.c \
 				mlx_utils_init.c \
 
+RAY_SRC = ray.c \
+			get_ray_x.c \
+			get_ray_y.c \
+
+PLAYER_SRC = move.c \
+				wall_judge.c
 
 SRCDIR = srcs
 SRCS = $(addprefix $(SRCDIR)/, $(SRC))
-CHECK_ARG_SRCDIR = srcs/check_arg
-SRCS += $(addprefix $(CHECK_ARG_SRCDIR)/, $(CHECK_ARG_SRC))
-PARSER_SRCDIR = srcs/parser
-SRCS += $(addprefix $(PARSER_SRCDIR)/, $(PARSER_SRC))
-DRAW_SRCDIR = srcs/draw
-SRCS += $(addprefix $(DRAW_SRCDIR)/, $(DRAW_SRC))
-HANDLE_MLX_SRCDIR = srcs/handle_mlx
-SRCS += $(addprefix $(HANDLE_MLX_SRCDIR)/, $(HANDLE_MLX_SRC))
+SRCS += $(addprefix $(SRCDIR)/check_arg/, $(CHECK_ARG_SRC))
+SRCS += $(addprefix $(SRCDIR)/parser/, $(PARSER_SRC))
+SRCS += $(addprefix $(SRCDIR)/draw/, $(DRAW_SRC))
+SRCS += $(addprefix $(SRCDIR)/handle_mlx/, $(HANDLE_MLX_SRC))
+SRCS += $(addprefix $(SRCDIR)/ray/, $(RAY_SRC))
+SRCS += $(addprefix $(SRCDIR)/player/, $(PLAYER_SRC))
+MAKE_DIR = check_arg parser draw handle_mlx ray player
 
 OBJDIR = objs
-OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
-CHECK_ARG_OBJDIR = objs/check_arg
-OBJS += $(addprefix $(CHECK_ARG_OBJDIR)/, $(CHECK_ARG_SRC:.c=.o))
-PARSER_OBJDIR = objs/parser
-OBJS += $(addprefix $(PARSER_OBJDIR)/, $(PARSER_SRC:.c=.o))
-DRAW_OBJDIR = objs/draw
-OBJS += $(addprefix $(DRAW_OBJDIR)/, $(DRAW_SRC:.c=.o))
-HANDLE_MLX_OBJDIR = objs/handle_mlx
-OBJS += $(addprefix $(HANDLE_MLX_OBJDIR)/, $(HANDLE_MLX_SRC:.c=.o))
+OBJS = $(subst $(SRCDIR), $(OBJDIR), $(SRCS:.c=.o))
+DEPS = $(OBJS:.o=.d)
+MAKE_DIRS = $(addprefix $(OBJDIR)/, $(MAKE_DIR))
 
-CFLAGS = -Wall -Wextra -Werror -MP -MMD
+CFLAGS = -Wall -Wextra -Werror -MP -MMD -O3
 RM = rm -rf
 
 INC = -I./includes/ -I./libft/includes -I./mlx
@@ -91,18 +92,30 @@ BLUE		= \033[1;34m
 YELLOW		= \033[1;33m
 RESET		= \033[0m
 
+FILE = 1
+MAX_FILES = $(words $(SRCS))
+
+# この辺使いたい
+# BAR="$(yes . | head -n ${I} | tr -d '\n')"
+# printf "\r[%3d/100] %s" $((I * 10)) ${BAR}
+
+
 all : $(NAME)
 
 $(NAME): $(OBJS)
 	@ $(MAKE) -C ./libft
 	@ $(MAKE) -C ./mlx
 	@ $(CC) $(CFLAGS) -o $@ $^ $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit
-	@ echo "$(CHECK) $(BLUE)Compiling cub3D...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling cub3D...%-50.50s\n$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
-	@ mkdir -p $(OBJDIR) $(CHECK_ARG_OBJDIR) $(PARSER_OBJDIR) $(DRAW_OBJDIR) $(HANDLE_MLX_OBJDIR)
+	@ mkdir -p $(MAKE_DIRS)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(FILE)/$(MAX_FILES)	$(GENERATE) $(YELLOW)Generating $@... %-50.50s$(RESET)\r"
+	@ $(eval FILE=$(shell echo $$(($(FILE)+1))))
+	@ if [ $(FILE) -eq $(MAX_FILES) ]; then \
+		printf "Done!	$(GENERATE) $(YELLOW)Finish Generating CUB3D Object files !%-50.50s\n$(RESET)"; \
+	fi
 
 clean :
 	@ $(MAKE) -C ./libft clean
@@ -111,10 +124,9 @@ clean :
 	@ echo "$(REMOVE) $(BLUE)Remove cub3D object files. $(RESET)"
 
 fclean :
-	@ $(RM) $(OBJDIR) $(NAME)
 	@ $(MAKE) -C ./libft fclean
 	@ $(MAKE) -C ./mlx fclean
-	@ $(RM) $(NAME)
+	@ $(RM) $(OBJDIR) $(NAME)
 	@ echo "$(REMOVE) $(BLUE)Remove cub3D object files and $(NAME). $(RESET)"
 
 re : fclean all
@@ -135,3 +147,5 @@ norm :
 bonus : all
 
 .PHONY : all clean fclean re bonus debug_bonus debug norm address tester
+
+-include $(DEPS)

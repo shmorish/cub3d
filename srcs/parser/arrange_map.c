@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   arrange_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shmorish <shmorish@student.42.fr>          +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 20:43:41 by shmorish          #+#    #+#             */
-/*   Updated: 2023/11/07 19:50:47 by shmorish         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:08:16 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
+
+void	print_map(char **map);
 
 void	arrange_map(t_parser *parser)
 {
@@ -26,12 +28,10 @@ void	arrange_map(t_parser *parser)
 		len = ft_strlen(map_dup[i]);
 		if (len != parser->map_width)
 		{
-			tmp = (char *)malloc((sizeof(char)) * parser->map_width + 1);
+			tmp = (char *)malloc((sizeof(char)) * (parser->map_width + 1));
 			ft_memcpy(tmp, map_dup[i], len);
 			while (len < parser->map_width)
-			{
 				tmp[len++] = ' ';
-			}
 			tmp[len] = '\0';
 			free(map_dup[i]);
 			map_dup[i] = tmp;
@@ -39,4 +39,37 @@ void	arrange_map(t_parser *parser)
 	}
 	free_map(parser->map);
 	parser->map = map_dup;
+	print_map(parser->map);
 }
+
+#ifdef DEBUG
+
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	printf("---------------------------\n");
+	printf("FILE: %s\n", __FILE__);
+	printf("map %p\n", map);
+	while (map[i] != NULL)
+	{
+		printf("map[%d]		%p\n", i, map[i]);
+		i++;
+	}
+	printf("---------------------------\n");
+	i = 0;
+	while (map[i] != NULL)
+	{
+		printf("map[%d]		[%s]\n", i, map[i]);
+		i++;
+	}
+}
+#else
+
+void	print_map(char **map)
+{
+	(void)map;
+}
+
+#endif

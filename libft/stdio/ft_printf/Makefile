@@ -24,17 +24,24 @@ BLUE		= \033[1;34m
 YELLOW		= \033[1;33m
 RESET		= \033[0m
 
+FILE = 1
+MAX_FILES = $(words $(SRCS))
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ ar rc $(NAME) $(OBJS)
-	@echo "$(CHECK) $(BLUE)Compiling ft_printf...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling ft_printf...%-50.50s\n$(RESET)"
 
 
 # for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(FILE)/$(MAX_FILES)	$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+	@ $(eval FILE=$(shell echo $$(($(FILE)+1))))
+	@ if [ $(FILE) -eq $(MAX_FILES) ]; then \
+		printf "Done!	$(GENERATE) $(YELLOW)Finish Generating FT_PRINTF Object files !%-50.50s\n$(RESET)"; \
+	fi
 
 # for Ubuntu
 # %.o: %.c $(INCLUDE)

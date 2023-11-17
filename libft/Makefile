@@ -32,7 +32,7 @@ STDIO_SRC     = ft_putchar_fd.c \
 				ft_putnbr_fd.c \
 				ft_putstr_fd.c \
 				get_next_line/get_next_line.c \
-				  
+
 STDLIB_SRC    = ft_abs.c \
 				ft_atoi.c \
 				ft_atol.c \
@@ -96,18 +96,25 @@ BLUE		= \033[1;34m
 YELLOW		= \033[1;33m
 RESET		= \033[0m
 
+FILE = 1
+MAX_FILES = $(words $(SRCS))
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ make -C $(PRINTF_PATH)
 	@ mv $(PRINTF_PATH)/$(PRINTF) ./$(NAME)
 	@ ar rc $(NAME) $(OBJS)
-	@echo "$(CHECK) $(BLUE)Compiling libft...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling libft...%-50.50s\n$(RESET)"
 
 # for Mac
 .c.o: $(OBJS)
 	@ $(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(FILE)/$(MAX_FILES)	$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+	@ $(eval FILE=$(shell echo $$(($(FILE)+1))))
+	@ if [ $(FILE) -eq $(MAX_FILES) ]; then \
+		printf "Done!	$(GENERATE) $(YELLOW)Finish Generating LIBFT Object files !%-50.50s\n$(RESET)"; \
+	fi
 
 # for Ubuntu
 #  %.o: %.c $(INCLUDE)

@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 20:09:19 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/17 16:19:35 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int	main(int argc, char **argv)
 	if (check_args(argc, argv) == INVALID)
 		return (1);
 	parser = init_parser(argv[1]);
-	data = init_data();
-	data->parser = parser;
+	data = init_data(parser);
 	draw_floor_sky(data);
-	mlx_loop(data->mlx_utils->mlx);
+	draw_wall(data);
+	draw_minimap(data);
+	// wall_image_to_window(data, 0, 0);
+	game_in_progress(data);
 	free_parser(parser);
 	data->parser = NULL;
 	free_data(data);

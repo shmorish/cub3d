@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 18:27:43 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/17 19:41:08 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # include "parser.h"
 # include "draw.h"
 # include "handle_mlx.h"
+# include "ray.h"
+# include "player.h"
 
 // print colors
 # define RED "\033[0;31m"
@@ -53,6 +55,8 @@
 typedef struct s_mlx_utils	t_mlx_utils;
 typedef struct s_data		t_data;
 typedef struct s_parser		t_parser;
+typedef struct s_texture	t_texture;
+typedef struct s_wall		t_wall;
 
 typedef struct s_mlx_utils
 {
@@ -60,7 +64,7 @@ typedef struct s_mlx_utils
 	void	*win;
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
+	int		bpp;
 	int		line_length;
 	int		endian;
 }	t_mlx_utils;
@@ -69,15 +73,23 @@ typedef struct s_data
 {
 	t_mlx_utils	*mlx_utils;
 	t_parser	*parser;
+	t_texture	*texture;
+	double		player_pos_x;
+	double		player_pos_y;
+	double		player_dir; // 正面方向の角度(ラジアン)
+	double		left_ray; // 左端方向の角度(ラジアン)
+	double		right_ray; // 右端方向の角度(ラジアン)
+	double		*length_ray; // 画面の横幅分のレイの長さ
+	int			*visual_height; // 描画する壁の高さ
 }	t_data;
 
 typedef enum e_direction
 {
 	UNKNOWN,
 	NORTH,
-	SOUTH,
 	WEST,
-	EAST
+	SOUTH,
+	EAST,
 }	t_direction;
 
 typedef struct s_parser
@@ -88,7 +100,7 @@ typedef struct s_parser
 	char		*south_texture;
 	char		*west_texture;
 	char		*east_texture;
-	char		*sprite_texture; // 未実装 -> なければbonusなし　-> あればbonus
+	char		*sprite_texture;
 
 	bool		is_bonus;
 
@@ -103,7 +115,26 @@ typedef struct s_parser
 	int			start_point_y;
 }	t_parser;
 
-t_data		*init_data(void);
+typedef struct s_texture
+{
+	t_wall	*south;
+	t_wall	*north;
+	t_wall	*west;
+	t_wall	*east;
+	int		img_w;
+	int		img_h;
+}	t_texture;
+
+typedef struct s_wall
+{
+	void	*wall_img;
+	char	*addr;
+	int		bpp;
+	int		line_length;
+	int		endian;
+}	t_wall;
+
+t_data		*init_data(t_parser *parser);
 void		free_data(t_data *data);
 t_parser	*init_parser(char *filename);
 

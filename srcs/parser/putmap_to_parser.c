@@ -6,13 +6,11 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 01:28:22 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/07 13:50:36 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/09 23:40:06 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
-
-void	print_map(char **map);
 
 char	**get_map(int fd)
 {
@@ -34,9 +32,9 @@ char	**get_map(int fd)
 		}
 		free(map_tmp);
 		map[height] = get_next_line(fd);
-		map[height + 1] = NULL;
 		if (map[height] == NULL)
 			break ;
+		map[height + 1] = NULL;
 		height++;
 		map_tmp = map;
 	}
@@ -52,30 +50,4 @@ void	putmap_to_parser(t_parser *parser, int fd)
 	parser->start_point_y = get_start_point_y(parser->map);
 	if (parser->start_point_x == -1 || parser->start_point_y == -1)
 		err_msg(INVALID_MAP_NO_PLAYER);
-	print_map(parser->map);
 }
-
-#ifdef DEBUG
-
-void	print_map(char **map)
-{
-	int	i;
-
-	i = 0;
-	printf("---------------------------\n");
-	printf("FILE: %s\n", __FILE__);
-	printf("map %p\n", map);
-	while (map[i] != NULL)
-	{
-		printf("map[%d] %p\n", i, map[i]);
-		i++;
-	}
-}
-#else
-
-void	print_map(char **map)
-{
-	(void)map;
-}
-
-#endif

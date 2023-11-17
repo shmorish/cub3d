@@ -18,21 +18,31 @@ BLUE		= \033[1;34m
 YELLOW		= \033[1;33m
 RESET		= \033[0m
 
+FILE = 1
+MAX_FILES = $(words $(SRC))
+
 all: $(NOM)
 
 $(NOM):	$(OBJ)
 	@ ar rc $(NOM) $(OBJ)
 	@ ranlib $(NOM)
-	@echo "$(CHECK) $(BLUE)Compiling minilbx...$(RESET)"
+	@ printf "$(CHECK) $(BLUE)Compiling minilbx...%-50.50s\n$(RESET)"
 
 %.o: %.c
 	@ cc -c $< -o $@ $(CFLAGS)
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
-
+	@ printf "$(FILE)/$(MAX_FILES)	$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+	@ $(eval FILE=$(shell echo $$(($(FILE)+1))))
+	@ if [ $(FILE) -eq $(MAX_FILES) ]; then \
+		printf "Done!	$(YELLOW)Finish Generating MLX Object files !%-50.50s\n$(RESET)"; \
+	fi
 
 %.o: %.m
 	@ cc -c $< -o $@ $(CFLAGS)
-	@ printf "$(GENERATE) $(YELLOW)Generating $@... %-50.50s\n$(RESET)"
+	@ printf "$(FILE)/$(MAX_FILES)	$(GENERATE) $(YELLOW)Generating $@... %-50.50s\r$(RESET)"
+	@ $(eval FILE=$(shell echo $$(($(FILE)+1))))
+	@ if [ $(FILE) -eq $(MAX_FILES) ]; then \
+		printf "Done!	$(YELLOW)Finish Generating cub3D Object files !%-50.50s\n$(RESET)"; \
+	fi
 
 clean:
 	@ rm -f $(NOM) $(OBJ) *~
