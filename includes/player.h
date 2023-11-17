@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:54 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/14 14:27:10 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/16 22:17:23 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define KEY_UP_ARROW 126
 # define KEY_ESC 53
 
-# define MOVE_SPEED 0.2
+# define MOVE_SPEED 0.4
 # define KEY_A 0
 # define KEY_D 2
 

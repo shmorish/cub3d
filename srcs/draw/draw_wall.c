@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/16 20:22:27 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/16 22:15:32 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	draw_wall(t_data *data)
 	int	color;
 
 	x = 0;
-	printf("x -> %.02f y ->%.02f\n", data->player_pos_x, data->player_pos_y);
+	// printf("x -> %.02f y ->%.02f\n", data->player_pos_x, data->player_pos_y);
 	data->left_ray = data->player_dir + M_PI_4;
 	data->right_ray = data->player_dir - M_PI_4;
 	while (x <= WINDOW_WIDTH)

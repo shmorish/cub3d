@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 01:45:11 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/13 01:43:59 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/17 11:57:30 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,14 @@ static double	get_ray_x_right(t_data *data, double ray)
 			ray += 0.000001;
 		check_y = tan(ray) * (check_x - data->player_pos_x) \
 					+ data->player_pos_y;
-		if (check_y < 1 || check_y > data->parser->map_height || check_x < 0 || check_x > data->parser->map_width)
+		if (check_y < 0 || check_y > data->parser->map_height || check_x < 0 || check_x > data->parser->map_width)
 			return (__DBL_MAX__);
 		// if (ray == 7 * M_PI_4)
 		// {
 		// 	printf("ray %d° check_y %d, map_height %d, check_x %d, map_width %d map[%d][%d]\n", \
 		// 		(int)(ray * 180 * M_1_PI), (int)check_y, data->parser->map_height, check_x, data->parser->map_width, (int)(check_y), check_x);
 		// }
-		if (data->parser->map[(int)(check_y)][check_x + 1] == '1')
+		if (data->parser->map[(int)(check_y)][check_x] == '1')
 		{
 			// printf("check_x_right	[%d][%d] ->  %c\n", (int)check_y, (int)(check_x), data->parser->map[(int)check_y][(int)(check_x)]);
 			length_ray = sqrt(pow(check_x - data->player_pos_x, 2) \

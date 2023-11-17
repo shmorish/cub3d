@@ -64,13 +64,11 @@ SRCS += $(addprefix $(SRCDIR)/player/, $(PLAYER_SRC))
 MAKE_DIR = check_arg parser draw handle_mlx ray player
 
 OBJDIR = objs
-DEPDIR = deps
 OBJS = $(subst $(SRCDIR), $(OBJDIR), $(SRCS:.c=.o))
-DEPS = $(subst $(OBJDIR), $(DEPDIR), $(OBJS:.o=.d))
+DEPS = $(OBJS:.o=.d)
 MAKE_DIRS = $(addprefix $(OBJDIR)/, $(MAKE_DIR))
-MAKE_DIRS += $(addprefix $(DEPDIR)/, $(MAKE_DIR))
 
-CFLAGS = -Wall -Wextra -Werror -MP -MMD
+CFLAGS = -Wall -Wextra -Werror -MP -MMD -O3
 RM = rm -rf
 
 INC = -I./includes/ -I./libft/includes -I./mlx
