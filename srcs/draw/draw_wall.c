@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/18 16:31:53 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/22 19:04:12 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,21 @@ void	draw_wall(t_data *data)
 	// printf("x -> %.02f y ->%.02f\n", data->player_pos_x, data->player_pos_y);
 	data->left_ray = data->player_dir + M_PI_4;
 	data->right_ray = data->player_dir - M_PI_4;
+	while (data->right_ray < 0)
+		data->right_ray += 2 * M_PI;
+	while (data->right_ray > 2 * M_PI)
+		data->right_ray -= 2 * M_PI;
+	while (data->left_ray < 0)
+		data->left_ray += 2 * M_PI;
+	while (data->left_ray > 2 * M_PI)
+		data->left_ray -= 2 * M_PI;
+	put_ray_data(data);
 	while (x <= WINDOW_WIDTH)
 	{
-		data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
-		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 2));
+		// data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
+		// printf("data->length_ray[%d] -> %.02f\n", x, data->length_ray[x]);
+		// data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 2));
+		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 2));
 		x++;
 	}
 	x = 0;
