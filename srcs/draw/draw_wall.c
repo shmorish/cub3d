@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/18 16:31:53 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/22 18:49:18 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,27 +35,28 @@ void	get_wall_addr(t_data *data)
 void	put_file_to_image(t_data *data)
 {
 	data->texture->west->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->west_texture, &data->texture->img_w, &data->texture->img_h);
+		data->parser->west_texture, &data->texture->west->img_w, &data->texture->west->img_h);
 	data->texture->east->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->east_texture, &data->texture->img_w, &data->texture->img_h);
+		data->parser->east_texture, &data->texture->east->img_w, &data->texture->east->img_h);
 	data->texture->south->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->south_texture, &data->texture->img_w, &data->texture->img_h);
+		data->parser->south_texture, &data->texture->south->img_w, &data->texture->south->img_h);
 	data->texture->north->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->north_texture, &data->texture->img_w, &data->texture->img_h);
+		data->parser->north_texture, &data->texture->north->img_w, &data->texture->north->img_h);
 	get_wall_addr(data);
+
 }
 
 void	wall_image_to_window(t_data *data, int w, int h)
 {
 	put_file_to_image(data);
 	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->west->wall_img, w * 480, h * 480);
-	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->east->wall_img, w * 480, h * 480);
-	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->south->wall_img, w * 480, h * 480);
-	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->north->wall_img, w * 480, h * 480);
+		data->texture->west->wall_img, w * 0, h * 0);
+	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+	// 	data->texture->east->wall_img, w * 480, h * 480);
+	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+	// 	data->texture->south->wall_img, w * 480, h * 480);
+	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+	// 	data->texture->north->wall_img, w * 480, h * 480);
 }
 
 void	draw_wall(t_data *data)
@@ -84,7 +85,7 @@ void	draw_wall(t_data *data)
 		{
 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y \
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
-				my_mlx_pixel_put(data, x, y, color);
+				my_mlx_pixel_put_for_wall(data, x, y, color);
 			y++;
 		}
 		x++;
