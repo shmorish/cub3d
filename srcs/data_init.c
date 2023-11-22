@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:34:58 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 06:06:21 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_data	*init_data(t_parser *parser)
 	data->length_ray = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
 	data->visual_height = (int *)malloc_err(sizeof(int) * (WINDOW_WIDTH + 1));
 	data->wall_dir = (t_direction *)malloc_err(sizeof(t_direction) * (WINDOW_WIDTH + 1));
-	data->wall_pos = (int *)malloc_err(sizeof(int) * (WINDOW_WIDTH + 1));
+	data->wall_pos = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
 	data->texture = (t_texture *)malloc_err(sizeof(t_texture));
 	data->texture->south = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->north = (t_wall *)malloc_err(sizeof(t_wall));

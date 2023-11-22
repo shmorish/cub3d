@@ -21,7 +21,7 @@ void	get_ray_length_x(t_data *data, double dir, t_ray *ray)
 		{
 			ray->wall = y - (int)y;
 			// printf("x -> %d y -> %d map[%d][%d] -> %c\n", (int)x, (int)y, (int)y, (int)x, data->parser->map[(int)y][(int)x]);
-			if (data->parser->map[(int)y][x] == '1')
+			if (data->parser->map[(int)y][x] == '1' || data->parser->map[(int)y][x] == ' ')
 				break ;
 			x++;
 		}
@@ -29,7 +29,7 @@ void	get_ray_length_x(t_data *data, double dir, t_ray *ray)
 		{
 			ray->wall = 1 - (y - (int)y);
 			// printf("x -> %d y -> %d map[%d][%d] -> %c\n", (int)x, (int)y, (int)y, (int)x - 1, data->parser->map[(int)y][(int)x - 1]);
-			if (data->parser->map[(int)y][x - 1] == '1')
+			if (data->parser->map[(int)y][x - 1] == '1' || data->parser->map[(int)y][x - 1] == ' ')
 				break ;
 			x--;
 		}
@@ -77,8 +77,10 @@ void	get_ray_length_y(t_data *data, double dir, t_ray *ray)
 		if (dir < M_PI)
 		{
 			ray->wall = x - (int)x;
-			// printf("x -> %d y -> %d map[%d][%d] -> %c\n", (int)x, (int)y, (int)y, (int)x, data->parser->map[(int)y][(int)x]);
-			if (data->parser->map[y][(int)x] == '1')
+			// printf("x -> %d y -> %d\n", (int)x, (int)y);
+			// printf("map_width -> %d map_height -> %d\n", data->parser->map_width, data->parser->map_height);
+			// printf("map[%d][%d] -> %c\n", (int)y, (int)x, data->parser->map[(int)y][(int)x]);
+			if (data->parser->map[y][(int)x] == '1' || data->parser->map[y][(int)x] == ' ')
 				break ;
 			y++;
 		}
@@ -86,7 +88,7 @@ void	get_ray_length_y(t_data *data, double dir, t_ray *ray)
 		{
 			ray->wall = 1 - (x - (int)x);
 			// printf("x -> %d y -> %d map[%d][%d] -> %c\n", (int)x, (int)y, (int)y - 1, (int)x, data->parser->map[y - 1][(int)x]);
-			if (data->parser->map[y - 1][(int)x] == '1')
+			if (data->parser->map[y - 1][(int)x] == '1' || data->parser->map[y - 1][(int)x] == ' ')
 				break ;
 			y--;
 		}

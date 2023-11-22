@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 22:24:47 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 06:11:07 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ void	draw_wall(t_data *data)
 					color = 0xFF0000;
 				else if (data->wall_dir[x] == EAST)
 					color = 0xFFFF00;
+				if (data->wall_pos[x] < 0.02)
+					color = 0x000000;
 				my_mlx_pixel_put(data, x, y, color);
 			}
 			y++;
