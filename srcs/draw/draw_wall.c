@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:04:12 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/22 22:24:47 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,17 @@ void	draw_wall(t_data *data)
 		{
 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y \
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
+			{
+				if (data->wall_dir[x] == SOUTH)
+					color = 0x00FF00;
+				else if (data->wall_dir[x] == NORTH)
+					color = 0x0000FF;
+				else if (data->wall_dir[x] == WEST)
+					color = 0xFF0000;
+				else if (data->wall_dir[x] == EAST)
+					color = 0xFFFF00;
 				my_mlx_pixel_put(data, x, y, color);
+			}
 			y++;
 		}
 		x++;

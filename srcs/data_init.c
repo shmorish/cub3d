@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:03:47 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/22 19:34:58 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static void	print_data_addr(t_data *data)
 	printf("data->visual_height: %p\n", data->visual_height);
 	printf("data->wall_dir: %p\n", data->wall_dir);
 	printf("data->wall_pos: %p\n", data->wall_pos);
-	printf("data->ray: %p\n", data->ray);
 }
 
 #else
