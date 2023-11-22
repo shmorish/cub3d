@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/16 20:00:18 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/22 16:01:27 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct s_mlx_utils	t_mlx_utils;
 typedef struct s_data		t_data;
 typedef struct s_parser		t_parser;
 typedef struct s_texture	t_texture;
+typedef struct s_ray		t_ray;
+typedef enum e_direction	t_direction;
 
 typedef struct s_mlx_utils
 {
@@ -80,6 +82,8 @@ typedef struct s_data
 	double		right_ray; // 右端方向の角度(ラジアン)
 	double		*length_ray; // 画面の横幅分のレイの長さ
 	int			*visual_height; // 描画する壁の高さ
+	t_direction	*wall_dir; // 壁の方向
+	int			*wall_pos; // 壁の位置
 }	t_data;
 
 typedef enum e_direction
@@ -90,6 +94,13 @@ typedef enum e_direction
 	SOUTH,
 	EAST,
 }	t_direction;
+
+typedef struct s_ray
+{
+	double		ray_length; // レイの長さ
+	double		wall; // 壁のx方向からの長さ (0 ~ 1)
+	t_direction	dir; // レイのぶつかった壁の方向
+}	t_ray;
 
 typedef struct s_parser
 {

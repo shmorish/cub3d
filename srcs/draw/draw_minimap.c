@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:02:12 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/17 00:27:53 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/22 17:15:23 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	draw_around(t_data *data, int x, int y, int color)
 		j = -1;
 		while (j < 2)
 		{
+			if (x + j < 0 || y + i < 0)
+				break;
 			my_mlx_pixel_put(data, x + j, y + i, color);
 			j++;
 		}
