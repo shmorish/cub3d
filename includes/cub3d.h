@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 16:01:27 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/22 19:03:22 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_parser		t_parser;
 typedef struct s_texture	t_texture;
 typedef struct s_ray		t_ray;
 typedef enum e_direction	t_direction;
+typedef struct s_wall		t_wall;
 
 typedef struct s_mlx_utils
 {
@@ -65,7 +66,7 @@ typedef struct s_mlx_utils
 	void	*win;
 	void	*img;
 	char	*addr;
-	int		bits_per_pixel;
+	int		bpp;
 	int		line_length;
 	int		endian;
 }	t_mlx_utils;
@@ -127,13 +128,22 @@ typedef struct s_parser
 
 typedef struct s_texture
 {
-	void	*south_wall;
-	void	*north_wall;
-	void	*west_wall;
-	void	*east_wall;
+	t_wall	*south;
+	t_wall	*north;
+	t_wall	*west;
+	t_wall	*east;
 	int		img_w;
 	int		img_h;
 }	t_texture;
+
+typedef struct s_wall
+{
+	void	*wall_img;
+	char	*addr;
+	int		bpp;
+	int		line_length;
+	int		endian;
+}	t_wall;
 
 t_data		*init_data(t_parser *parser);
 void		free_data(t_data *data);
