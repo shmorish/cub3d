@@ -6,24 +6,34 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:20:05 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 16:20:25 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 22:59:27 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ray.h"
 
-void	get_ray_length_y(t_data *data, double dir, t_ray *ray)
+static void	ray_y_init(double *x, int *y, t_data *data, double dir)
+{
+	if (*y == (int)(data->player_pos_y) && (dir < M_PI))
+		*y = *y + 1;
+	*x = ((*y - data->player_pos_y) / tan(dir)) + data->player_pos_x;
+}
+
+static void	initial_value_y(int *y, t_ray *ray, t_data *data)
+{
+	*y = (int)(data->player_pos_y);
+	ray->ray_length = __DBL_MAX__;
+}
+
+static void	get_ray_length_y(t_data *data, double dir, t_ray *ray)
 {
 	int		y;
 	double	x;
 
-	y = (int)(data->player_pos_y);
-	ray->ray_length = __DBL_MAX__;
+	initial_value_y(&y, ray, data);
 	while (1)
 	{
-		if (y == (int)(data->player_pos_y) && (dir < M_PI))
-			y++;
-		x = ((y - data->player_pos_y) / tan(dir)) + data->player_pos_x;
+		ray_y_init(&x, &y, data, dir);
 		if (out_map(data, x, y) == true)
 			return ;
 		if (dir < M_PI)
@@ -41,7 +51,7 @@ void	get_ray_length_y(t_data *data, double dir, t_ray *ray)
 			y--;
 		}
 	}
-	ray->ray_length = sqrt(pow(x - data->player_pos_x, 2) + pow(y - data->player_pos_y, 2)) * cos(dir - data->player_dir);
+	ray->ray_length = ray_length_algorithm(data, dir, x, y);
 }
 
 t_ray	*get_length_ray_from_y(t_data *data, double dir)

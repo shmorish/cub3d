@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 00:33:30 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 16:17:51 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 22:39:04 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ bool	out_map(t_data *data, double x, double y);
 bool	map_is_wall(t_data *data, int x, int y);
 t_ray	*get_length_ray_from_x(t_data *data, double dir);
 t_ray	*get_length_ray_from_y(t_data *data, double dir);
+double	ray_length_algorithm(t_data *data, double dir, double x, double y);
 
 #endif
