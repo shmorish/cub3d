@@ -47,9 +47,10 @@ HANDLE_MLX_SRC = close.c \
 				mlx_utils_init.c \
 
 RAY_SRC = ray.c \
-			get_ray_x.c \
-			get_ray_y.c \
-			ray_re.c
+			update_ray_data.c \
+			ray_x.c \
+			ray_y.c \
+
 
 PLAYER_SRC = move.c \
 				wall_judge.c

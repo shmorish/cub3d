@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:02:12 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 10:41:12 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 15:19:38 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	draw_square(t_data *data, double x, double y, int color)
 		while (j < 5)
 		{
 			my_mlx_pixel_put(data, offset_x + j, offset_y + i, color);
-			// my_mlx_pixel_put(data, x * 5 + j, y * 5 + i, color);
 			j++;
 		}
 		i++;
@@ -69,7 +68,7 @@ void	draw_around(t_data *data, int x, int y, int color)
 		while (j < 2)
 		{
 			if (x + j < 0 || y + i < 0)
-				break;
+				break ;
 			my_mlx_pixel_put(data, x + j, y + i, color);
 			j++;
 		}
@@ -128,6 +127,7 @@ void	draw_minimap(t_data *data)
 		}
 		i++;
 	}
-	draw_ray_on_minimap(data, data->player_pos_x + 0.5, data->player_pos_y + 0.5);
+	draw_ray_on_minimap(data, data->player_pos_x + 0.5, \
+			data->player_pos_y + 0.5);
 	draw_square(data, data->player_pos_x, data->player_pos_y, 0xFF0000);
 }

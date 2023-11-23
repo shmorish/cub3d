@@ -5,37 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 00:32:42 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 17:02:06 by morishitash      ###   ########.fr       */
+/*   Created: 2023/11/15 10:16:10 by morishitash       #+#    #+#             */
+/*   Updated: 2023/11/23 16:20:21 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ray.h"
 
-double	get_length_ray(t_data *data, double ray)
+bool	out_map(t_data *data, double x, double y)
 {
-	double	length_ray;
+	if (x < 0 || y < 0 || \
+		x > data->parser->map_width || y > data->parser->map_height)
+	{
+		return (true);
+	}
+	return (false);
+}
 
-	while (ray < 0)
-		ray += 2 * M_PI;
-	while (ray > 2 * M_PI)
-		ray -= 2 * M_PI;
-	length_ray = __DBL_MAX__;
-	(void)data;
-	// data->ray->point_ray_x = get_ray_x(data, ray);
-	// data->ray->point_ray_y = get_ray_y(data, ray);
-	// if (data->ray->point_ray_x < data->ray->point_ray_y)
-	// {
-	// 	// 魚眼レンズ
-	// 	// length_ray = point_ray_from_x;
-	// 	// 魚眼レンズは直したけど、ある方向を向いたらSEGVが出る
-	// 	length_ray = data->ray->point_ray_x * cos(ray - data->player_dir);
-	// }
-	// else
-	// {
-	// 	// 上記同様。
-	// 	// length_ray = point_ray_from_y;
-	// 	length_ray = data->ray->point_ray_y * cos(ray - data->player_dir);
-	// }
-	return (length_ray);
+bool	map_is_wall(t_data *data, int x, int y)
+{
+	if (data->parser->map[y][x] == '1' || data->parser->map[y][x] == ' ')
+		return (true);
+	return (false);
+}
+
+void	put_ray_data(t_data	*data)
+{
+	t_ray	*ray_data_x;
+	t_ray	*ray_data_y;
+	int		x;
+
+	x = 0;
+	while (x <= WINDOW_WIDTH)
+	{
+		ray_data_x = get_length_ray_from_x(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
+		ray_data_y = get_length_ray_from_y(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
+		if (ray_data_x->ray_length < ray_data_y->ray_length)
+		{
+			data->length_ray[x] = ray_data_x->ray_length;
+			data->wall_dir[x] = ray_data_x->dir;
+			data->wall_pos[x] = ray_data_x->wall;
+		}
+		else
+		{
+			data->length_ray[x] = ray_data_y->ray_length;
+			data->wall_dir[x] = ray_data_y->dir;
+			data->wall_pos[x] = ray_data_y->wall;
+		}
+		free(ray_data_x);
+		ray_data_x = NULL;
+		free(ray_data_y);
+		ray_data_y = NULL;
+		x++;
+	}
 }
