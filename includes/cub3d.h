@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 06:06:02 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 10:52:42 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_data
 	int			*visual_height; // 描画する壁の高さ
 	t_direction	*wall_dir; // 壁の方向
 	double		*wall_pos; // 壁の位置
+	bool		minimap;
 }	t_data;
 
 typedef enum e_direction

@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 06:11:07 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 10:33:47 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	draw_wall(t_data *data)
 		// data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
 		// printf("data->length_ray[%d] -> %.02f\n", x, data->length_ray[x]);
 		// data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 2));
-		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 2));
+		data->visual_height[x] = (int)((WINDOW_HEIGHT / (data->length_ray[x] * 8 / 7)));
 		x++;
 	}
 	x = 0;

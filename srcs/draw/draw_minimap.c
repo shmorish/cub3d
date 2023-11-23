@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:02:12 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:04:02 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 10:41:12 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,19 @@ void	draw_square(t_data *data, double x, double y, int color)
 {
 	int	i;
 	int	j;
+	int	offset_x;
+	int	offset_y;
 
 	i = 0;
+	offset_x = x * 5;
+	offset_y = y * 5;
 	while (i < 5)
 	{
 		j = 0;
 		while (j < 5)
 		{
-			my_mlx_pixel_put(data, x * 5 + j, y * 5 + i, color);
+			my_mlx_pixel_put(data, offset_x + j, offset_y + i, color);
+			// my_mlx_pixel_put(data, x * 5 + j, y * 5 + i, color);
 			j++;
 		}
 		i++;

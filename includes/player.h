@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:54 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/18 16:09:24 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/23 10:43:18 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define KEY_D 2
 # define KEY_S 1
 # define KEY_W 13
+# define KEY_Q 12
 
 void	game_in_progress(t_data *data);
 void	wall_judge(t_data *data, double x, double y);
