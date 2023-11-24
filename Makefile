@@ -94,30 +94,29 @@ BLUE		= \033[1;34m
 YELLOW		= \033[1;33m
 RESET		= \033[0m
 
-FILE = 1
-MAX_FILES = $(words $(SRCS))
+TOTAL_FILES := $(shell echo $(words $(SRCS)))
+CURRENT_FILE = 1
 
-# この辺使いたい
-# BAR="$(yes . | head -n ${I} | tr -d '\n')"
-# printf "\r[%3d/100] %s" $((I * 10)) ${BAR}
-
+define progress
+    @printf "$(GENERATE) $(YELLOW)Cub3d obj file gen Progress: %3d%% (%d/%d)$(RESET)\r" $$(($(CURRENT_FILE)*100/$(TOTAL_FILES))) $(CURRENT_FILE) $(TOTAL_FILES)
+    @$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
+    @if [ $(CURRENT_FILE) -gt $(TOTAL_FILES) ]; then \
+        printf "$(GENERATE) $(YELLOW)Finish Generating CUB3D Object files !%-50.50s\n$(RESET)"; \
+    fi
+endef
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@ $(MAKE) -C ./libft
 	@ $(MAKE) -C ./mlx
+	@ $(MAKE) -C ./libft
 	@ $(CC) $(CFLAGS) -o $@ $^ $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit
 	@ printf "$(CHECK) $(BLUE)Compiling cub3D...%-50.50s\n$(RESET)"
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@ mkdir -p $(MAKE_DIRS)
 	@ $(CC) $(CFLAGS) $(INC) -o $@ -c $<
-	@ printf "$(FILE)/$(MAX_FILES)	$(GENERATE) $(YELLOW)Generating $@... %-50.50s$(RESET)\r"
-	@ $(eval FILE=$(shell echo $$(($(FILE)+1))))
-	@ if [ $(FILE) -eq $(MAX_FILES) ]; then \
-		printf "Done!	$(GENERATE) $(YELLOW)Finish Generating CUB3D Object files !%-50.50s\n$(RESET)"; \
-	fi
+	$(call progress)
 
 clean :
 	@ $(MAKE) -C ./libft clean
