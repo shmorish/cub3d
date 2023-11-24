@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:03:47 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 10:55:27 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ t_data	*init_data(t_parser *parser)
 	data->length_ray = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
 	data->visual_height = (int *)malloc_err(sizeof(int) * (WINDOW_WIDTH + 1));
 	data->wall_dir = (t_direction *)malloc_err(sizeof(t_direction) * (WINDOW_WIDTH + 1));
-	data->wall_pos = (int *)malloc_err(sizeof(int) * (WINDOW_WIDTH + 1));
+	data->wall_pos = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
 	data->texture = (t_texture *)malloc_err(sizeof(t_texture));
 	data->texture->south = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->north = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->west = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->east = (t_wall *)malloc_err(sizeof(t_wall));
+	data->minimap = true;
 	mlx_utils_init(data);
 	print_data_addr(data);
 	return (data);
@@ -56,7 +57,6 @@ static void	print_data_addr(t_data *data)
 	printf("data->visual_height: %p\n", data->visual_height);
 	printf("data->wall_dir: %p\n", data->wall_dir);
 	printf("data->wall_pos: %p\n", data->wall_pos);
-	printf("data->ray: %p\n", data->ray);
 }
 
 #else

@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:06:57 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/22 18:04:11 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/24 16:56:58 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	re_draw(t_data *data)
 		&data->mlx_utils->endian);
 	draw_floor_sky(data);
 	draw_wall(data);
-	draw_minimap(data);
-	wall_image_to_window(data, 0, 0);
+	if (data->minimap == true)
+		draw_minimap(data);
+	// wall_image_to_window(data, 0, 0);
 }
 
 void	draw_floor_sky(t_data *data)

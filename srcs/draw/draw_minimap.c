@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:02:12 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:04:02 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 22:58:34 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@ void	draw_square(t_data *data, double x, double y, int color)
 {
 	int	i;
 	int	j;
+	int	offset_x;
+	int	offset_y;
 
 	i = 0;
+	offset_x = x * 5;
+	offset_y = y * 5;
 	while (i < 5)
 	{
 		j = 0;
 		while (j < 5)
 		{
-			my_mlx_pixel_put(data, x * 5 + j, y * 5 + i, color);
+			my_mlx_pixel_put(data, offset_x + j, offset_y + i, color);
 			j++;
 		}
 		i++;
@@ -64,7 +68,7 @@ void	draw_around(t_data *data, int x, int y, int color)
 		while (j < 2)
 		{
 			if (x + j < 0 || y + i < 0)
-				break;
+				break ;
 			my_mlx_pixel_put(data, x + j, y + i, color);
 			j++;
 		}
@@ -123,6 +127,7 @@ void	draw_minimap(t_data *data)
 		}
 		i++;
 	}
-	draw_ray_on_minimap(data, data->player_pos_x + 0.5, data->player_pos_y + 0.5);
+	draw_ray_on_minimap(data, data->player_pos_x + 0.5, \
+			data->player_pos_y + 0.5);
 	draw_square(data, data->player_pos_x, data->player_pos_y, 0xFF0000);
 }

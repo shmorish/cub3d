@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:03:47 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/17 19:52:05 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/23 15:09:47 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ void	draw_wall(t_data *data);
 void	draw_minimap(t_data *data);
 void	wall_image_to_window(t_data *data, int w, int h);
 void	re_draw(t_data *data);
-
 
 #endif

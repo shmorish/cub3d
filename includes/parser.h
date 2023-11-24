@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:28:14 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/10 00:59:32 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/23 14:06:04 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_parser		t_parser;
 # define INVALID_MAP_MSG "Map is not surrounded by walls\n"
 # define INVALID_MAP_PLAYER_MSG "Map has more than one player\n"
 # define INVALID_MAP_NO_PLAYER "Map has no player\n"
+# define TOO_BIG_MAP "Map is too big\n"
 // not used
 # define INVALID_MAP_CHAR "Map has invalid characters\n"
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:19 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/21 17:39:03 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:30:37 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 static void	movement(int keycode, t_data *data)
 {
+	double	sin_dir;
+	double	cos_dir;
+
+	sin_dir = sin(data->player_dir) * MOVE_SPEED;
+	cos_dir = cos(data->player_dir) * MOVE_SPEED;
 	if (keycode == KEY_W)
-	{
-		wall_judge(data, cos(data->player_dir) * MOVE_SPEED, \
-			sin(data->player_dir) * MOVE_SPEED);
-	}
+		wall_judge(data, cos_dir, sin_dir);
 	else if (keycode == KEY_S)
-	{
-		wall_judge(data, -cos(data->player_dir) * MOVE_SPEED, \
-			-sin(data->player_dir) * MOVE_SPEED);
-	}
+		wall_judge(data, -cos_dir, -sin_dir);
 	else if (keycode == KEY_D)
-	{
-		wall_judge(data, -sin(data->player_dir) * MOVE_SPEED, \
-			cos(data->player_dir) * MOVE_SPEED);
-	}
+		wall_judge(data, -sin_dir, cos_dir);
 	else if (keycode == KEY_A)
-	{
-		wall_judge(data, sin(data->player_dir) * MOVE_SPEED, \
-			-cos(data->player_dir) * MOVE_SPEED);
-	}
+		wall_judge(data, sin_dir, -cos_dir);
+	else if (keycode == KEY_Q)
+		data->minimap = !(data->minimap);
 	else if (keycode == KEY_RIGHT_ARROW)
 		data->player_dir += M_PI_4 / 2;
 	else if (keycode == KEY_LEFT_ARROW)
@@ -46,7 +41,7 @@ int	move_player(int keycode, t_data *data)
 	if (keycode == KEY_UP_ARROW || keycode == KEY_DOWN_ARROW || \
 		keycode == KEY_RIGHT_ARROW || keycode == KEY_LEFT_ARROW || \
 		keycode == KEY_D || keycode == KEY_A || keycode == KEY_S || \
-		keycode == KEY_W)
+		keycode == KEY_W || keycode == KEY_Q)
 		movement(keycode, data);
 	else if (keycode == KEY_ESC)
 		close_window_esc(keycode, data);
@@ -56,7 +51,6 @@ int	move_player(int keycode, t_data *data)
 int	mouse_move(int x, int y, t_data *data)
 {
 	(void)y;
-	// printf("mouse x -> %d y -> %d\n", x, y);
 	if (x < WINDOW_WIDTH / 2)
 		data->player_dir -= 0.1;
 	else if (x > WINDOW_WIDTH / 2)

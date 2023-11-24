@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:22:48 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/24 16:56:46 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,11 @@ void	draw_wall(t_data *data)
 	int		color;
 
 	x = 0;
-	// printf("x -> %.02f y ->%.02f\n", data->player_pos_x, data->player_pos_y);
-	data->left_ray = data->player_dir + M_PI_4;
-	data->right_ray = data->player_dir - M_PI_4;
-	while (data->right_ray < 0)
-		data->right_ray += 2 * M_PI;
-	while (data->right_ray > 2 * M_PI)
-		data->right_ray -= 2 * M_PI;
-	while (data->left_ray < 0)
-		data->left_ray += 2 * M_PI;
-	while (data->left_ray > 2 * M_PI)
-		data->left_ray -= 2 * M_PI;
+	update_ray_data(data);
 	put_ray_data(data);
 	while (x <= WINDOW_WIDTH)
 	{
-		// data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
-		// printf("data->length_ray[%d] -> %.02f\n", x, data->length_ray[x]);
-		// data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 2));
-		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 2));
+		data->visual_height[x] = (int)((WINDOW_HEIGHT / (data->length_ray[x] * 8 / 7)));
 		x++;
 	}
 	x = 0;
@@ -96,7 +83,19 @@ void	draw_wall(t_data *data)
 		{
 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y \
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
+			{
+				if (data->wall_dir[x] == SOUTH)
+					color = 0x00FF00;
+				else if (data->wall_dir[x] == NORTH)
+					color = 0x0000FF;
+				else if (data->wall_dir[x] == WEST)
+					color = 0xFF0000;
+				else if (data->wall_dir[x] == EAST)
+					color = 0xFFFF00;
+				if (data->wall_pos[x] < 0.02)
+					color = 0x000000;
 				my_mlx_pixel_put(data, x, y, color);
+			}
 			y++;
 		}
 		x++;
