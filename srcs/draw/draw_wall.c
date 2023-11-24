@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/22 19:13:34 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/22 19:22:48 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	draw_wall(t_data *data)
 		{
 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y \
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
-				my_mlx_pixel_put_for_wall(data, x, y, color);
+				my_mlx_pixel_put(data, x, y, color);
 			y++;
 		}
 		x++;
