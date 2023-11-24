@@ -108,10 +108,11 @@ endef
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@ $(MAKE) -C ./mlx
 	@ $(MAKE) -C ./libft
+	@ $(MAKE) -C ./mlx
 	@ $(CC) $(CFLAGS) -o $@ $^ $(LIBFT) -Lmlx -lmlx -framework OpenGL -framework AppKit
 	@ printf "$(CHECK) $(BLUE)Compiling cub3D...%-50.50s\n$(RESET)"
+	@ make banner
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	@ mkdir -p $(MAKE_DIRS)
@@ -146,6 +147,12 @@ norm :
 	norminette srcs includes libft
 
 bonus : all
+
+banner :
+	@ clear
+	@ $(CC) -o banner banner.c
+	@ ./banner
+	@ $(RM) banner
 
 .PHONY : all clean fclean re bonus debug_bonus debug norm address tester
 
