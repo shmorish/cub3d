@@ -5,44 +5,65 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 00:32:42 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/17 12:13:58 by morishitash      ###   ########.fr       */
+/*   Created: 2023/11/15 10:16:10 by morishitash       #+#    #+#             */
+/*   Updated: 2023/11/23 22:52:59 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ray.h"
 
-double	get_length_ray(t_data *data, double ray)
+bool	out_map(t_data *data, double x, double y)
 {
-	double	point_ray_from_x;
-	double	point_ray_from_y;
-	double	length_ray;
+	if (x < 0 || y < 0 || \
+		x > data->parser->map_width || y > data->parser->map_height)
+	{
+		return (true);
+	}
+	return (false);
+}
 
-	while (ray < 0)
-		ray += 2 * M_PI;
-	while (ray > 2 * M_PI)
-		ray -= 2 * M_PI;
-	// printf("%d", (int)(ray * 180 * M_1_PI));
-	point_ray_from_x = get_ray_x(data, ray);
-	point_ray_from_y = get_ray_y(data, ray);
-	// if (point_ray_from_x == __DBL_MAX__)
-		// printf("x : max		y : %03f\n", point_ray_from_y);
-	// else
-		// printf("x : %03f	y : %03f\n", point_ray_from_x, point_ray_from_y);
-	if (point_ray_from_x < point_ray_from_y)
+bool	map_is_wall(t_data *data, int x, int y)
+{
+	if (data->parser->map[y][x] == '1' || data->parser->map[y][x] == ' ')
+		return (true);
+	return (false);
+}
+
+double	ray_length_algorithm(t_data *data, double dir, double x, double y)
+{
+	return (sqrt(pow(x - data->player_pos_x, 2) + \
+		pow(y - data->player_pos_y, 2)) \
+		* cos(dir - data->player_dir));
+}
+
+void	store_data(t_data *data, t_ray *ray, int x)
+{
+	data->length_ray[x] = ray->ray_length;
+	data->wall_dir[x] = ray->dir;
+	data->wall_pos[x] = ray->wall;
+}
+
+void	put_ray_data(t_data	*data)
+{
+	t_ray	*ray_data_x;
+	t_ray	*ray_data_y;
+	int		x;
+	double	radian;
+
+	x = 0;
+	while (x <= WINDOW_WIDTH)
 	{
-		// printf("point_ray_from_x: %f\n", point_ray_from_x);
-		// 魚眼レンズ
-		// length_ray = point_ray_from_x;
-		// 魚眼レンズは直したけど、ある方向を向いたらSEGVが出る
-		length_ray = point_ray_from_x * cos(ray - data->player_dir);
+		radian = data->right_ray + (M_PI_2 * x / WINDOW_WIDTH);
+		ray_data_x = get_length_ray_from_x(data, radian);
+		ray_data_y = get_length_ray_from_y(data, radian);
+		if (ray_data_x->ray_length < ray_data_y->ray_length)
+			store_data(data, ray_data_x, x);
+		else
+			store_data(data, ray_data_y, x);
+		free(ray_data_x);
+		ray_data_x = NULL;
+		free(ray_data_y);
+		ray_data_y = NULL;
+		x++;
 	}
-	else
-	{
-		// printf("point_ray_from_y: %f\n", point_ray_from_y);
-		// 上記同様。
-		// length_ray = point_ray_from_y;
-		length_ray = point_ray_from_y * cos(ray - data->player_dir);
-	}
-	return (length_ray);
 }

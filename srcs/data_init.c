@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/17 19:50:32 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/23 10:55:27 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,14 @@ t_data	*init_data(t_parser *parser)
 	data->player_pos_y = (double)parser->start_point_y + 0.5;
 	data->length_ray = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
 	data->visual_height = (int *)malloc_err(sizeof(int) * (WINDOW_WIDTH + 1));
+	data->wall_dir = (t_direction *)malloc_err(sizeof(t_direction) * (WINDOW_WIDTH + 1));
+	data->wall_pos = (double *)malloc_err(sizeof(double) * (WINDOW_WIDTH + 1));
 	data->texture = (t_texture *)malloc_err(sizeof(t_texture));
 	data->texture->south = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->north = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->west = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->east = (t_wall *)malloc_err(sizeof(t_wall));
+	data->minimap = true;
 	mlx_utils_init(data);
 	print_data_addr(data);
 	return (data);
@@ -48,6 +51,12 @@ static void	print_data_addr(t_data *data)
 	printf("FILE: %s\n", __FILE__);
 	printf("data: %p\n", data);
 	printf("data->mlx_utils: %p\n", data->mlx_utils);
+	printf("data->parser: %p\n", data->parser);
+	printf("data->texture: %p\n", data->texture);
+	printf("data->length_ray: %p\n", data->length_ray);
+	printf("data->visual_height: %p\n", data->visual_height);
+	printf("data->wall_dir: %p\n", data->wall_dir);
+	printf("data->wall_pos: %p\n", data->wall_pos);
 }
 
 #else

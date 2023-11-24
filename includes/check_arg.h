@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:38:55 by morishitash       #+#    #+#             */
-/*   Updated: 2023/10/25 15:19:54 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/11/24 13:09:06 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "cub3d.h"
 
 // print errors
-# define NOFILE_IN_ARG "No file in argument\n"
+# define NOFILE_IN_ARG "Only one argument is valid\n"
 # define INVALID_FILE_EXT "Invalid file extension\n"
 
 // check_arg.c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/17 19:47:36 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/23 15:23:40 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,11 @@ void	draw_wall(t_data *data)
 	int		color;
 
 	x = 0;
-	// printf("x -> %.02f y ->%.02f\n", data->player_pos_x, data->player_pos_y);
-	data->left_ray = data->player_dir + M_PI_4;
-	data->right_ray = data->player_dir - M_PI_4;
+	update_ray_data(data);
+	put_ray_data(data);
 	while (x <= WINDOW_WIDTH)
 	{
-		data->length_ray[x] = get_length_ray(data, data->right_ray + (M_PI_2 * x / WINDOW_WIDTH));
-		data->visual_height[x] = (int)(WINDOW_HEIGHT / (data->length_ray[x] * 1 / 2));
+		data->visual_height[x] = (int)((WINDOW_HEIGHT / (data->length_ray[x] * 8 / 7)));
 		x++;
 	}
 	x = 0;
@@ -84,7 +82,19 @@ void	draw_wall(t_data *data)
 		{
 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y \
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
+			{
+				if (data->wall_dir[x] == SOUTH)
+					color = 0x00FF00;
+				else if (data->wall_dir[x] == NORTH)
+					color = 0x0000FF;
+				else if (data->wall_dir[x] == WEST)
+					color = 0xFF0000;
+				else if (data->wall_dir[x] == EAST)
+					color = 0xFFFF00;
+				if (data->wall_pos[x] < 0.02)
+					color = 0x000000;
 				my_mlx_pixel_put(data, x, y, color);
+			}
 			y++;
 		}
 		x++;

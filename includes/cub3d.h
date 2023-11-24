@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/17 19:41:08 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/24 11:02:32 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ typedef struct s_mlx_utils	t_mlx_utils;
 typedef struct s_data		t_data;
 typedef struct s_parser		t_parser;
 typedef struct s_texture	t_texture;
+typedef struct s_ray		t_ray;
+typedef enum e_direction	t_direction;
 typedef struct s_wall		t_wall;
 
 typedef struct s_mlx_utils
@@ -69,6 +71,9 @@ typedef struct s_mlx_utils
 	int		endian;
 }	t_mlx_utils;
 
+//visual_height 描画する壁の高さ (0 ~ WINDOW_HEIGHT)
+//wall_dir 壁の方向 (NORTH, SOUTH, WEST, EAST)
+//wall_pos 壁の位置 (0 ~ 1) (0: 壁の左端, 1: 壁の右端)
 typedef struct s_data
 {
 	t_mlx_utils	*mlx_utils;
@@ -76,11 +81,14 @@ typedef struct s_data
 	t_texture	*texture;
 	double		player_pos_x;
 	double		player_pos_y;
-	double		player_dir; // 正面方向の角度(ラジアン)
-	double		left_ray; // 左端方向の角度(ラジアン)
-	double		right_ray; // 右端方向の角度(ラジアン)
-	double		*length_ray; // 画面の横幅分のレイの長さ
-	int			*visual_height; // 描画する壁の高さ
+	double		player_dir;
+	double		left_ray;
+	double		right_ray;
+	double		*length_ray;
+	int			*visual_height;
+	t_direction	*wall_dir;
+	double		*wall_pos;
+	bool		minimap;
 }	t_data;
 
 typedef enum e_direction
@@ -91,6 +99,13 @@ typedef enum e_direction
 	SOUTH,
 	EAST,
 }	t_direction;
+
+typedef struct s_ray
+{
+	double		ray_length;
+	double		wall;
+	t_direction	dir;
+}	t_ray;
 
 typedef struct s_parser
 {
