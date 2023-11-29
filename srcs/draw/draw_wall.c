@@ -6,58 +6,71 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/24 16:56:46 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/29 19:09:05 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/draw.h"
 
-void	get_wall_addr(t_data *data)
-{
-	data->texture->south->addr = \
-		mlx_get_data_addr(data->texture->south->wall_img, \
-		&data->texture->south->bpp, &data->texture->south->line_length, \
-		&data->texture->south->endian);
-	data->texture->north->addr = \
-		mlx_get_data_addr(data->texture->north->wall_img, \
-		&data->texture->north->bpp, &data->texture->north->line_length, \
-		&data->texture->north->endian);
-	data->texture->west->addr = \
-		mlx_get_data_addr(data->texture->west->wall_img, \
-		&data->texture->west->bpp, &data->texture->west->line_length, \
-		&data->texture->west->endian);
-	data->texture->east->addr = \
-		mlx_get_data_addr(data->texture->east->wall_img, \
-		&data->texture->east->bpp, &data->texture->east->line_length, \
-		&data->texture->east->endian);
-}
+// void	wall_image_to_window(t_data *data, int w, int h)
+// {
+// 	put_file_to_image(data);
+// 	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win,
+// 		data->texture->west->wall_img, w * 0, h * 0);
+// 	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+// 		data->texture->east->wall_img, w * 480, h * 480);
+// 	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+// 		data->texture->south->wall_img, w * 480, h * 480);
+// 	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
+// 		data->texture->north->wall_img, w * 480, h * 480);
+// }
 
-void	put_file_to_image(t_data *data)
-{
-	data->texture->west->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->west_texture, &data->texture->west->img_w, &data->texture->west->img_h);
-	data->texture->east->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->east_texture, &data->texture->east->img_w, &data->texture->east->img_h);
-	data->texture->south->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->south_texture, &data->texture->south->img_w, &data->texture->south->img_h);
-	data->texture->north->wall_img = mlx_xpm_file_to_image(data->mlx_utils->mlx, \
-		data->parser->north_texture, &data->texture->north->img_w, &data->texture->north->img_h);
-	get_wall_addr(data);
+// void	draw_wall(t_data *data)
+// {
+// 	int	x;
+// 	int	y;
+// 	int	color;
 
-}
-
-void	wall_image_to_window(t_data *data, int w, int h)
-{
-	put_file_to_image(data);
-	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-		data->texture->west->wall_img, w * 0, h * 0);
-	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-	// 	data->texture->east->wall_img, w * 480, h * 480);
-	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-	// 	data->texture->south->wall_img, w * 480, h * 480);
-	// mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win, \
-	// 	data->texture->north->wall_img, w * 480, h * 480);
-}
+// 	x = 0;
+// 	update_ray_data(data);
+// 	put_ray_data(data);
+// 	while (x <= WINDOW_WIDTH)
+// 	{
+// 		data->visual_height[x] = (int)((WINDOW_HEIGHT / (data->length_ray[x] * 8
+// 					/ 7)));
+// 		x++;
+// 	}
+// 	x = 0;
+// 	y = 0;
+// 	color = 0x00FF00;
+// 	while (x < WINDOW_WIDTH)
+// 	{
+// 		y = 0;
+// 		while (y < WINDOW_HEIGHT)
+// 		{
+// 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y
+// 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
+// 			{
+// 				printf("out! -> x = %f\n", data->wall_pos[x]);
+// 				// if (data->wall_dir[x] == SOUTH)
+// 				// 	color = calculate_wall_coordinates(data, data->texture->south, data->wall_pos[x]);
+// 				// else if (data->wall_dir[x] == NORTH)
+// 				// 	color = calculate_wall_coordinates(data, data->texture->north, data->wall_pos[x]);
+// 				// else if (data->wall_dir[x] == WEST)
+// 				// 	color = calculate_wall_coordinates(data, data->texture->west, data->wall_pos[x]);
+// 				// else if (data->wall_dir[x] == EAST)
+// 				// 	color = calculate_wall_coordinates(data, data->texture->east, data->wall_pos[x]);
+// 				if (data->wall_pos[x] < 0.02)
+// 					color = 0x000000;
+// 				my_mlx_pixel_put(data, x, y, color);
+// 			}
+// 			y++;
+// 		}
+// 		x++;
+// 	}
+// 	mlx_put_image_to_window(data->mlx_utils->mlx, data->mlx_utils->win,
+// 		data->mlx_utils->img, 0, 0);
+// }
 
 void	draw_wall(t_data *data)
 {
@@ -68,9 +81,11 @@ void	draw_wall(t_data *data)
 	x = 0;
 	update_ray_data(data);
 	put_ray_data(data);
+	put_file_to_image(data);
 	while (x <= WINDOW_WIDTH)
 	{
-		data->visual_height[x] = (int)((WINDOW_HEIGHT / (data->length_ray[x] * 8 / 7)));
+		data->visual_height[x] = (int)((WINDOW_HEIGHT / (data->length_ray[x] * 8
+					/ 7)));
 		x++;
 	}
 	x = 0;
@@ -81,17 +96,18 @@ void	draw_wall(t_data *data)
 		y = 0;
 		while (y < WINDOW_HEIGHT)
 		{
+			// printf("out! -> x = %f\n", data->wall_pos[x]);
 			if ((WINDOW_HEIGHT - data->visual_height[x]) / 2 <= y \
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
 			{
 				if (data->wall_dir[x] == SOUTH)
-					color = 0x00FF00;
+					color = calculate_wall_coordinates(data, data->texture->south, data->wall_pos[x]);
 				else if (data->wall_dir[x] == NORTH)
-					color = 0x0000FF;
+					color = calculate_wall_coordinates(data, data->texture->north, data->wall_pos[x]);
 				else if (data->wall_dir[x] == WEST)
-					color = 0xFF0000;
+					color = calculate_wall_coordinates(data, data->texture->west, data->wall_pos[x]);
 				else if (data->wall_dir[x] == EAST)
-					color = 0xFFFF00;
+					color = calculate_wall_coordinates(data, data->texture->east, data->wall_pos[x]);
 				if (data->wall_pos[x] < 0.02)
 					color = 0x000000;
 				my_mlx_pixel_put(data, x, y, color);

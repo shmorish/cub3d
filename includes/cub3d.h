@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/24 16:56:34 by hhino            ###   ########.fr       */
+/*   Updated: 2023/11/27 17:38:45 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ typedef struct s_texture
 typedef struct s_wall
 {
 	void	*wall_img;
-	char	*addr;
+	int		*addr;
 	int		img_w;
 	int		img_h;
 	int		bpp;

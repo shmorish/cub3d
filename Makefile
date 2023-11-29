@@ -41,6 +41,7 @@ endif
 DRAW_SRC = draw.c \
 				draw_wall.c \
 				draw_minimap.c \
+				xpm_to_wall.c \
 
 HANDLE_MLX_SRC = close.c \
 				pixel_put.c \
