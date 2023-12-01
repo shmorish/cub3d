@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:01:42 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/29 19:34:30 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/01 19:49:37 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,21 @@ void	put_file_to_image(t_data *data)
 	get_wall_addr(data);
 }
 
-unsigned int	calculate_wall_coordinates(t_data *data, t_wall *wall, double x)
+unsigned int	calculate_wall_coordinates(t_data *data, t_wall *wall,
+		double wallpos, int x, int y)
 {
 	unsigned int	color;
 	int				txx;
 	int				txy;
 
-	(void)data;
-	color = 0;
-	txy = 0;
-	if (x == 1)
-		x -= 0.000001;
-	txx = x * wall->img_w;
+	txy = y * wall->img_h / data->visual_height[x];
+	if (txy >= wall->img_h - 4)
+		txy = wall->img_h - 4;
+	txx = wallpos * wall->img_w;
+	if (txx >= wall->img_w - 4)
+		txx = wall->img_w - 4;
+	// printf("[%f x%d]", wallpos, txx);
+	// printf("(x%d, y%d)", txx, txy);
 	color = (unsigned int)get_texel_color(wall, txx, txy);
 	return (color);
 }

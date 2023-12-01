@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:03:47 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/29 17:43:04 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/01 18:19:42 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	re_draw(t_data *data);
 
 void	put_file_to_image(t_data *data);
 void	get_wall_addr(t_data *data);
-unsigned int	calculate_wall_coordinates(t_data *data, t_wall *wall, double x);
+unsigned int	calculate_wall_coordinates(t_data *data, t_wall *wall, double wallpos, int x, int y);
 
 #endif

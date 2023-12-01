@@ -6,7 +6,7 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/29 19:09:05 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/01 19:44:47 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,10 @@ void	draw_wall(t_data *data)
 {
 	int		x;
 	int		y;
+	int		i = 0;
+	int		j = 0;
+	int		k = 0;
+	int		l = 0;
 	int		color;
 
 	x = 0;
@@ -94,6 +98,10 @@ void	draw_wall(t_data *data)
 	while (x < WINDOW_WIDTH)
 	{
 		y = 0;
+		i = 0;
+		j = 0;
+		k = 0;
+		l = 0;
 		while (y < WINDOW_HEIGHT)
 		{
 			// printf("out! -> x = %f\n", data->wall_pos[x]);
@@ -101,14 +109,30 @@ void	draw_wall(t_data *data)
 				&& y <= (WINDOW_HEIGHT + data->visual_height[x]) / 2)
 			{
 				if (data->wall_dir[x] == SOUTH)
-					color = calculate_wall_coordinates(data, data->texture->south, data->wall_pos[x]);
+				{
+					// printf("s[%d %d]", data->visual_height[x], i);
+					color = calculate_wall_coordinates(data, data->texture->south, data->wall_pos[x], x, i);
+					i++;
+				}
 				else if (data->wall_dir[x] == NORTH)
-					color = calculate_wall_coordinates(data, data->texture->north, data->wall_pos[x]);
+				{
+					// printf("n[%d %d]", data->visual_height[x], j);
+					color = calculate_wall_coordinates(data, data->texture->north, data->wall_pos[x], x, j);
+					j++;
+				}
 				else if (data->wall_dir[x] == WEST)
-					color = calculate_wall_coordinates(data, data->texture->west, data->wall_pos[x]);
+				{
+					// printf("w[%d %d]", data->visual_height[x], k);
+					color = calculate_wall_coordinates(data, data->texture->west, data->wall_pos[x], x, k);
+					k++;
+				}
 				else if (data->wall_dir[x] == EAST)
-					color = calculate_wall_coordinates(data, data->texture->east, data->wall_pos[x]);
-				if (data->wall_pos[x] < 0.02)
+				{
+					// printf("e[%d %d]", data->visual_height[x], l);
+					color = calculate_wall_coordinates(data, data->texture->east, data->wall_pos[x], x, l);
+					l++;
+				}
+				if (data->wall_pos[x] < 0.01)
 					color = 0x000000;
 				my_mlx_pixel_put(data, x, y, color);
 			}
