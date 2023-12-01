@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:39:41 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/08 16:39:36 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/01 19:42:15 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,24 @@ t_parser	*init_parser(char *filename)
 
 void	putdata_to_parser(t_parser *parser)
 {
-	int	fd;
+	int		fd;
+	char	*line;
 
 	fd = open(parser->filename, O_RDONLY);
 	if (fd == -1)
 		exit(err_msg(OPEN_ERR));
 	puttexture_to_parser(parser, fd);
 	check_texture_path(parser);
+	line = get_next_line(fd);
+	if (line[0] != '\n')
+		exit(err_msg("Invalid map info\n"));
+	free(line);
 	putcolor_to_parser(parser, fd);
 	check_color(parser);
+	line = get_next_line(fd);
+	if (line[0] != '\n')
+		exit(err_msg("Invalid map info\n"));
+	free(line);
 	putmap_to_parser(parser, fd);
 	arrange_map(parser);
 	check_map(parser);

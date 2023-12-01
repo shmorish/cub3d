@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:55:37 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/23 15:09:04 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/01 20:11:49 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,19 @@ void	wall_judge(t_data *data, double x, double y)
 	double	check_y;
 
 	check_x = data->player_pos_x + x;
-	check_y = data->player_pos_y + y;
-	if (cannot_go(data, data->parser->map, check_x, check_y) == false)
-	{
-		return ;
-	}
-	check_x = data->player_pos_x + x;
 	check_y = data->player_pos_y;
 	if (cannot_go(data, data->parser->map, check_x, check_y) == false)
 	{
-		return ;
+		check_y = data->player_pos_y + y;
+		if (cannot_go(data, data->parser->map, check_x, check_y) == false)
+			return ;
 	}
 	check_x = data->player_pos_x;
 	check_y = data->player_pos_y + y;
 	if (cannot_go(data, data->parser->map, check_x, check_y) == false)
 	{
-		return ;
+		check_y = data->player_pos_y;
+		if (cannot_go(data, data->parser->map, check_x, check_y) == false)
+			return ;
 	}
 }

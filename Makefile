@@ -26,17 +26,8 @@ PARSER_SRC = arrange_map.c \
 				putcolor_floor.c \
 				putcolor_to_parser.c \
 				putmap_to_parser.c \
-
-ifeq ($(MAKECMDGOALS), bonus)
-	PARSER_SRC += parser_bonus.c \
-					puttexture_to_parser_bonus.c
-else ifeq ($(MAKECMDGOALS), debug_bonus)
-	PARSER_SRC += parser_bonus.c \
-					puttexture_to_parser_bonus.c
-else
-	PARSER_SRC += parser.c \
-					puttexture_to_parser.c
-endif
+				parser.c \
+				puttexture_to_parser.c
 
 DRAW_SRC = draw.c \
 				draw_wall.c \
@@ -78,8 +69,6 @@ INC = -I./includes/ -I./libft/includes -I./mlx
 LIBFT = libft/libft.a
 
 ifeq ($(MAKECMDGOALS), debug)
-	CFLAGS += -DDEBUG
-else ifeq ($(MAKECMDGOALS), debug_bonus)
 	CFLAGS += -DDEBUG
 endif
 
@@ -135,8 +124,6 @@ re : fclean all
 
 debug : re
 
-debug_bonus : re
-
 address : re
 
 tester :
@@ -146,14 +133,12 @@ tester :
 norm :
 	norminette srcs includes libft
 
-bonus : all
-
 banner :
 	@ clear
 	@ $(CC) -o banner banner.c
 	@ ./banner
 	@ $(RM) banner
 
-.PHONY : all clean fclean re bonus debug_bonus debug norm address tester
+.PHONY : all clean fclean re debug norm address tester
 
 -include $(DEPS)
