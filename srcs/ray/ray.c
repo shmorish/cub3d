@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:16:10 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 22:52:59 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/01 21:55:58 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,21 @@ bool	map_is_wall(t_data *data, int x, int y)
 
 double	ray_length_algorithm(t_data *data, double dir, double x, double y)
 {
-	return (sqrt(pow(x - data->player_pos_x, 2) + \
-		pow(y - data->player_pos_y, 2)) \
-		* cos(dir - data->player_dir));
+	double direction;
+	double ray_length_x;
+	double ray_length_y;
+	
+	direction = data->player_dir - dir;
+	while (direction < 0)
+		direction += 2 * M_PI;
+	while (direction > 2 * M_PI)
+		direction -= 2 * M_PI;
+	ray_length_x = pow(x - data->player_pos_x, 2);
+	ray_length_y = pow(y - data->player_pos_y, 2);
+	if (data->fish_eye == true)
+		return (sqrt(ray_length_x + ray_length_y));
+	else
+		return (sqrt(ray_length_x + ray_length_y) * cos(direction));
 }
 
 void	store_data(t_data *data, t_ray *ray, int x)

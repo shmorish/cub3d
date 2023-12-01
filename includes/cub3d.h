@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/27 17:38:45 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/01 21:47:14 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct s_data
 	t_direction	*wall_dir;
 	double		*wall_pos;
 	bool		minimap;
+	bool		fish_eye;
 }	t_data;
 
 typedef enum e_direction

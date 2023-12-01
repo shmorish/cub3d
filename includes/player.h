@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:45:54 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/23 10:43:18 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/01 21:48:36 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define KEY_S 1
 # define KEY_W 13
 # define KEY_Q 12
+# define KEY_P 35
 
 void	game_in_progress(t_data *data);
 void	wall_judge(t_data *data, double x, double y);

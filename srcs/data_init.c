@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 17:47:15 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 10:55:27 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/01 21:47:20 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_data	*init_data(t_parser *parser)
 	data->texture->west = (t_wall *)malloc_err(sizeof(t_wall));
 	data->texture->east = (t_wall *)malloc_err(sizeof(t_wall));
 	data->minimap = true;
+	data->fish_eye = false;
 	mlx_utils_init(data);
 	print_data_addr(data);
 	return (data);
