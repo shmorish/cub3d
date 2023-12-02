@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:37:19 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/24 13:06:37 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 19:55:24 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@
 #define TWFIVE "  C:::::CCCCCCCC::::Cu:::::::::::::::uu "
 #define TWSIX "b:::::b     b:::::b            3:::::3  D:::::D    D:::::D \n"
 #define TWSEVEN "  C:::::CCCCCCCC::::Cu:::::::::::::::u"
-#define TWEIGHT "u b:::::bbbbbb::::::b3333333     3:::::3DDD:::::DDDDD:::::D  \n"
+#define TWEIGHT "u b:::::bbbbbb::::::b3333333     3:::::3DDD:::::DDDDD:::::D\n"
 #define TWNINE "   CC:::::::::::::::C u:::::::::::::::u b"
 #define THIRTY "::::::::::::::::b 3::::::33333::::::3D:::::::::::::::DD   \n"
 #define THIRTYONE "     CCC::::::::::::C  uu::::::::uu:::u b"
 #define THIRTYTWO ":::::::::::::::b  3:::::::::::::::33 D::::::::::::DDD     \n"
 #define THIRTYTHREE "        CCCCCCCCCCCCC    uuuuuuuu  uuuu b"
-#define THIRTYFOUR "bbbbbbbbbbbbbbb    333333333333333   DDDDDDDDDDDDD        \n"
+#define THIRTYFOUR "bbbbbbbbbbbbbbb    333333333333333   DDDDDDDDDDDDD\n"
 
 int	main(void)
 {
