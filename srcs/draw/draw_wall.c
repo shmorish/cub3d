@@ -6,21 +6,15 @@
 /*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/12/02 15:16:29 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/02 15:30:34 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/draw.h"
 
-void	draw_wall(t_data *data)
+void	calculate_visual_height(t_data *data)
 {
-	int		x;
-	int		y;
-	int		i;
-	int		j;
-	int		k;
-	int		l;
-	int		color;
+	int	x;
 
 	x = 0;
 	update_ray_data(data);
@@ -32,6 +26,19 @@ void	draw_wall(t_data *data)
 			(int)((WINDOW_HEIGHT / (data->length_ray[x] * 8 / 7)));
 		x++;
 	}
+}
+
+void	draw_wall(t_data *data)
+{
+	int		x;
+	int		y;
+	int		i;
+	int		j;
+	int		k;
+	int		l;
+	int		color;
+
+	calculate_visual_height(data);
 	x = 0;
 	y = 0;
 	i = 0;
