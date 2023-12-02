@@ -55,11 +55,12 @@ unsigned int	calculate_wall_coordinates(t_data *data, t_wall *wall,
 	txy = y * wall->img_h / data->visual_height[x];
 	if (txy >= wall->img_h - 4)
 		txy = wall->img_h - 4;
-	txx = wallpos * wall->img_w;
+	txx = (wallpos * wall->img_w) / 4;
 	if (txx >= wall->img_w - 4)
 		txx = wall->img_w - 4;
 	// printf("[%f x%d]", wallpos, txx);
-	// printf("(x%d, y%d)", txx, txy);
+	// if (txy % 10 == 0)
+		// printf("(x%d, y%d)", txx, txy);
 	color = (unsigned int)get_texel_color(wall, txx, txy);
 	return (color);
 }

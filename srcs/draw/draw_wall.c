@@ -132,7 +132,7 @@ void	draw_wall(t_data *data)
 					color = calculate_wall_coordinates(data, data->texture->east, data->wall_pos[x], x, l);
 					l++;
 				}
-				if (data->wall_pos[x] < 0.01)
+				if (data->wall_pos[x] >= 0.995 || data->wall_pos[x] <= 0.005)
 					color = 0x000000;
 				my_mlx_pixel_put(data, x, y, color);
 			}

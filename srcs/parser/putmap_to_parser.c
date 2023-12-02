@@ -46,7 +46,7 @@ void	putmap_to_parser(t_parser *parser, int fd)
 	parser->map = map_parse(get_map(fd));
 	parser->map_height = get_map_height(parser->map);
 	parser->map_width = get_map_width(parser->map);
-	if (parser->map_height == 100 || parser->map_width == 100)
+	if (parser->map_height >= 100 || parser->map_width >= 100)
 		exit(err_msg(TOO_BIG_MAP));
 	parser->start_point_x = get_start_point_x(parser->map);
 	parser->start_point_y = get_start_point_y(parser->map);
