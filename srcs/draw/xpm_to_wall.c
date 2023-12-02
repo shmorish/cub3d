@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:01:42 by hhino             #+#    #+#             */
-/*   Updated: 2023/12/02 15:27:08 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 15:35:05 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, \
 	txy = y * wall->img_h / visual_height;
 	if (txy >= wall->img_h - 4)
 		txy = wall->img_h - 4;
-	txx = (wallpos * wall->img_w) / 4;
+	txx = (wallpos * wall->img_w);
 	if (txx >= wall->img_w - 4)
 		txx = wall->img_w - 4;
 	color = (unsigned int)get_texel_color(wall, txx, txy);

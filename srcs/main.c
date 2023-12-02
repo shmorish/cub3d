@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:35:52 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/29 18:15:33 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/02 15:49:02 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int argc, char **argv)
 	data = init_data(parser);
 	draw_floor_sky(data);
 	draw_wall(data);
-	draw_minimap(data);
 	game_in_progress(data);
 	free_parser(parser);
 	data->parser = NULL;
