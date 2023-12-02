@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 16:59:08 by morishitash       #+#    #+#             */
-/*   Updated: 2023/12/01 21:47:14 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 18:42:09 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@
 
 # define WINDOW_WIDTH 720
 # define WINDOW_HEIGHT 480
+// # define WINDOW_WIDTH 1080
+// # define WINDOW_HEIGHT 1080
 
 typedef struct s_mlx_utils	t_mlx_utils;
 typedef struct s_data		t_data;

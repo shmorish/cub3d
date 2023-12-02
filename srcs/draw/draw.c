@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:06:57 by hhino             #+#    #+#             */
-/*   Updated: 2023/12/02 15:26:19 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 19:49:02 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 void	re_draw(t_data *data)
 {
-	mlx_destroy_image(data->mlx_utils->mlx, data->mlx_utils->img);
-	data->mlx_utils->img = \
-		mlx_new_image(data->mlx_utils->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	data->mlx_utils->addr = mlx_get_data_addr(data->mlx_utils->img, \
-		&data->mlx_utils->bpp, &data->mlx_utils->line_length, \
-		&data->mlx_utils->endian);
 	draw_floor_sky(data);
 	draw_wall(data);
 	if (data->minimap == true)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_wall.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:13:17 by morishitash       #+#    #+#             */
-/*   Updated: 2023/12/02 16:02:52 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 19:48:45 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	calculate_visual_height(t_data *data)
 	x = 0;
 	update_ray_data(data);
 	put_ray_data(data);
-	put_file_to_image(data);
 	while (x <= WINDOW_WIDTH)
 	{
 		data->visual_height[x] = \
