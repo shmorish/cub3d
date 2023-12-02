@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:39:24 by hhino             #+#    #+#             */
-/*   Updated: 2023/12/02 15:22:48 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 15:27:38 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_data		t_data;
 typedef struct s_wall		t_wall;
 
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void		my_mlx_pixel_put_double(t_data *data, double x, double y,\
+void		my_mlx_pixel_put_double(t_data *data, double x, double y, \
 		int color);
 uint32_t	get_texel_color(t_wall *wall, int x, int y);
 

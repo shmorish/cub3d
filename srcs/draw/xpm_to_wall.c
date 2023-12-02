@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:01:42 by hhino             #+#    #+#             */
-/*   Updated: 2023/12/02 15:24:51 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 15:27:08 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	put_file_to_image(t_data *data)
 	get_wall_addr(data->texture);
 }
 
-unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, int visual_height, int y)
+unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, \
+		int visual_height, int y)
 {
 	unsigned int	color;
 	int				txx;

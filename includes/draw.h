@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 20:03:47 by hhino             #+#    #+#             */
-/*   Updated: 2023/12/02 15:14:55 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/02 15:26:39 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void			re_draw(t_data *data);
 //xpm_to_wall
 void			put_file_to_image(t_data *data);
 void			get_wall_addr(t_texture *texture);
-// unsigned int	calculate_wall_coordinates(t_data *data, t_wall *wall, double wallpos, int x, int y);
-unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, int visual_height, int y);
+unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, \
+			int visual_height, int y);
 
 #endif

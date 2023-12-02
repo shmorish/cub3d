@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 19:06:57 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/28 20:18:35 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/02 15:26:19 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	re_draw(t_data *data)
 	draw_wall(data);
 	if (data->minimap == true)
 		draw_minimap(data);
-	// wall_image_to_window(data, 0, 0);
 }
 
 void	draw_floor_sky(t_data *data)
