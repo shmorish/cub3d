@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:02:12 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 22:58:34 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 15:23:36 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,6 @@ void	draw_ray_on_minimap(t_data *data, double x, double y)
 	int		ray_y;
 	int		i;
 
-	// i = 0;
-	// while (i < 20)
-	// {
-	// 	ray_x = x * 5 + cos(data->player_dir) * i;
-	// 	ray_y = y * 5 + sin(data->player_dir) * i;
-	// 	draw_around(data, ray_x, ray_y, 0x00007F);
-	// 	i++;
-	// }
 	i = 0;
 	while (i < 15)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_mlx.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
+/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:39:24 by hhino             #+#    #+#             */
-/*   Updated: 2023/11/29 18:47:50 by hhino            ###   ########.fr       */
+/*   Updated: 2023/12/02 15:22:48 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ typedef struct s_data		t_data;
 typedef struct s_wall		t_wall;
 
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void		my_mlx_pixel_put_double(t_data *data, double x, double y, int color);
+void		my_mlx_pixel_put_double(t_data *data, double x, double y,\
+		int color);
 uint32_t	get_texel_color(t_wall *wall, int x, int y);
 
 int			close_window_esc(int keycode, t_data *data);

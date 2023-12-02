@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 10:16:10 by morishitash       #+#    #+#             */
-/*   Updated: 2023/12/01 21:55:58 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/02 15:23:25 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ bool	map_is_wall(t_data *data, int x, int y)
 
 double	ray_length_algorithm(t_data *data, double dir, double x, double y)
 {
-	double direction;
-	double ray_length_x;
-	double ray_length_y;
-	
+	double	direction;
+	double	ray_length_x;
+	double	ray_length_y;
+
 	direction = data->player_dir - dir;
 	while (direction < 0)
 		direction += 2 * M_PI;
@@ -52,7 +52,7 @@ void	store_data(t_data *data, t_ray *ray, int x)
 {
 	data->length_ray[x] = ray->ray_length;
 	data->wall_dir[x] = ray->dir;
-	data->wall_pos[x] = ray->wall;
+	data->wall_pos[x] = ray->wall / 4;
 }
 
 void	put_ray_data(t_data	*data)
