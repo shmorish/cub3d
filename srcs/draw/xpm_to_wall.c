@@ -46,16 +46,19 @@ void	put_file_to_image(t_data *data)
 }
 
 unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, \
-		int visual_height, int y)
+		int visual_height, int count)
 {
 	unsigned int	color;
 	int				txx;
 	int				txy;
 
-	txy = y * wall->img_h / visual_height;
+	if (visual_height > 480)
+		txy = ((visual_height - wall->img_h) / 2 + count) * wall->img_h / visual_height;
+	else
+		txy = count * wall->img_h / visual_height;
 	if (txy >= wall->img_h - 4)
 		txy = wall->img_h - 4;
-	txx = (wallpos * wall->img_w);
+	txx = wallpos * wall->img_w;
 	if (txx >= wall->img_w - 4)
 		txx = wall->img_w - 4;
 	color = (unsigned int)get_texel_color(wall, txx, txy);

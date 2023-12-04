@@ -29,6 +29,6 @@ void			re_draw(t_data *data);
 void			put_file_to_image(t_data *data);
 void			get_wall_addr(t_texture *texture);
 unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, \
-			int visual_height, int y);
+			int visual_height, int count);
 
 #endif
