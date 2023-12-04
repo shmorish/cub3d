@@ -38,7 +38,7 @@ static void	get_ray_length_y(t_data *data, double dir, t_ray *ray)
 			return ;
 		if (dir < M_PI)
 		{
-			ray->wall = x - (int)x;
+			ray->wall = 1 - (x - (int)x);
 			if (map_is_wall(data, (int)x, y) == true)
 				break ;
 			y++;
