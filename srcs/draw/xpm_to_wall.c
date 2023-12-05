@@ -6,7 +6,7 @@
 /*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:01:42 by hhino             #+#    #+#             */
-/*   Updated: 2023/12/02 15:35:05 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/05 13:12:49 by morishitash      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ unsigned int	calculate_wall_coordinates(t_wall *wall, double wallpos, \
 	int				txy;
 
 	if (visual_height > 480)
-		txy = ((visual_height - wall->img_h) / 2 + count) * wall->img_h / visual_height;
+		txy = ((visual_height - wall->img_h) / 2 + count) * \
+		wall->img_h / visual_height;
 	else
 		txy = count * wall->img_h / visual_height;
 	if (txy >= wall->img_h - 4)
