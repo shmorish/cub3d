@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_y.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: morishitashoto <morishitashoto@student.    +#+  +:+       +#+        */
+/*   By: hhino <hhino@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 16:20:05 by morishitash       #+#    #+#             */
-/*   Updated: 2023/11/23 22:59:27 by morishitash      ###   ########.fr       */
+/*   Updated: 2023/12/05 22:20:42 by hhino            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	get_ray_length_y(t_data *data, double dir, t_ray *ray)
 		}
 		else
 		{
-			ray->wall = 1 - (x - (int)x);
+			ray->wall = x - (int)x;
 			if (map_is_wall(data, (int)x, y - 1) == true)
 				break ;
 			y--;
