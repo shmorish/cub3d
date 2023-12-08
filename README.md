@@ -54,6 +54,6 @@ The map files are in `map` directory
 | `P`    | fish eye view mode (ON / OFF)       | Press `P` to toggle fisheye mode on and off.           |
 | `ESC`  | Finish the game                     | Press `ESC` to finish the game.                        |
 
-### Player 
+### Demonstration
 
    
