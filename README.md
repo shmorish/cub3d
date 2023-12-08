@@ -44,7 +44,16 @@ The map files are in `map` directory
 
 ### Actions
 
-| Keys  | Instruction                         | Action                                                 |
-| ----- | ----------------------------------- | ------------------------------------------------------ |
+| Keys   | Instruction                         | Action                                                 |
+| :----: | :---------------------------------- | ------------------------------------------------------ |
+| `W`    | the player movement                 | Press `W` to move forward.                             |
+| `A`    | the player movement                 | Press `A` to move left.                                |
+| `S`    | the player movement                 | Press `S` to move backward.                            |
+| `D`    | the player movement                 | Press `D` to move right.                               |
+| `Q`    | minimap (ON / OFF)                  | Press `Q` to display minimap.                          |
+| `P`    | fish eye view mode (ON / OFF)       | Press `P` to toggle fisheye mode on and off.           |
+| `ESC`  | Finish the game                     | Press `ESC` to finish the game.                        |
+
+### Player 
 
    
