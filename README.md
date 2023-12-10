@@ -56,4 +56,8 @@ The map files are in `map` directory
 
 ### Demonstration
 
+
+https://github.com/Mori062/cub3d/assets/110565242/f10fc49f-4420-4384-93df-df54dccdf0a4
+
+
    
